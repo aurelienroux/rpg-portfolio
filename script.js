@@ -1,3 +1,5 @@
+import { logRandom } from "./test.js";
+
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -26,3 +28,5 @@ Promise.all([loadImage(village), loadImage(bear)]).then(() => {
 window.addEventListener("keydown", (e) => {
   console.log(e);
 });
+
+logRandom();
