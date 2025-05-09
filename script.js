@@ -22,3 +22,7 @@ Promise.all([loadImage(village), loadImage(bear)]).then(() => {
   ctx.drawImage(village, -175, -400, 1600, 1600);
   ctx.drawImage(bear, 1024 / 2 - 50, 761 / 2 - 50, 100, 100);
 });
+
+window.addEventListener("keydown", (e) => {
+  console.log(e);
+});
