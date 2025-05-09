@@ -2,13 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+    <title>Document</title>
+    <style>
+      html {
+        height: 100%;
+      }
+      body {
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+      }
+      canvas {
+        display: block;
+        background: black;
+      }
+    </style>
   </head>
   <body>
-    <div id="ui"></div>
-    <canvas id="game"></canvas>
-    <script type="module" src="/src/main.tsx"></script>
+    <canvas id="canvas" width="1024" height="761"> fallback </canvas>
+    <!-- <img id="village" src="village.png" alt="village" style="display: none" /> -->
+    <script src="script.js"></script>
   </body>
 </html>
