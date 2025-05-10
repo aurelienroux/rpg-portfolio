@@ -1,14 +1,9 @@
-import { logRandom } from "./test.js";
+import { Sprite, toggleFullScreen } from "./helpers.js";
 
-/** @type {HTMLCanvasElement} */
-const canvas = document.getElementById("canvas");
-const ctx = canvas.getContext("2d");
-
-const village = new Image();
-village.src = "village.png";
-
-const bear = new Image();
-bear.src = "bear.png";
+const villageImg = new Image();
+villageImg.src = "village.png";
+const bearImg = new Image();
+bearImg.src = "bear.png";
 
 /**
  * @param {HTMLImageElement} image
@@ -20,10 +15,48 @@ function loadImage(image) {
   });
 }
 
-Promise.all([loadImage(village), loadImage(bear)]).then(() => {
-  ctx.drawImage(village, -175, -400, 1600, 1600);
-  ctx.drawImage(bear, 1024 / 2 - 50, 761 / 2 - 50, 100, 100);
+const backgroundSprite = new Sprite({
+  image: villageImg,
+  position: {
+    x: -175,
+    y: -400,
+  },
+  size: {
+    width: 1600,
+    height: 1600,
+  },
 });
+
+const bearSprite = new Sprite({
+  image: bearImg,
+  position: {
+    x: 1024 / 2 - 50,
+    y: 761 / 2 - 50,
+  },
+  size: {
+    width: 100,
+    height: 100,
+  },
+});
+
+/**
+ * Make sure img assets are loaded
+ */
+async function preload() {
+  await Promise.all([loadImage(villageImg), loadImage(bearImg)]);
+}
+
+/**
+ * Main animation loop
+ */
+async function main() {
+  backgroundSprite.draw();
+  bearSprite.draw();
+
+  requestAnimationFrame(main);
+}
+
+preload().then(main);
 
 window.addEventListener("keydown", (e) => {
   console.log(e);
@@ -38,13 +71,3 @@ document.addEventListener(
   },
   false
 );
-
-function toggleFullScreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
-  } else if (document.exitFullscreen) {
-    document.exitFullscreen();
-  }
-}
-
-logRandom();
