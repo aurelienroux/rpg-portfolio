@@ -39,6 +39,16 @@ const bearSprite = new Sprite({
   },
 });
 
+let pressedKeys = {
+  w: false,
+  a: false,
+  s: false,
+  d: false,
+};
+
+/** @type {string} */
+let lastKeyPressed = "";
+
 /**
  * Make sure img assets are loaded
  */
@@ -53,13 +63,42 @@ async function main() {
   backgroundSprite.draw();
   bearSprite.draw();
 
+  if (!!pressedKeys.w && lastKeyPressed == "w") {
+    backgroundSprite.position.y += 3;
+  } else if (!!pressedKeys.a && lastKeyPressed == "a") {
+    backgroundSprite.position.x += 3;
+  } else if (!!pressedKeys.s && lastKeyPressed == "s") {
+    backgroundSprite.position.y -= 3;
+  } else if (!!pressedKeys.d && lastKeyPressed == "d") {
+    backgroundSprite.position.x -= 3;
+  }
+
   requestAnimationFrame(main);
 }
 
 preload().then(main);
 
 window.addEventListener("keydown", (e) => {
-  console.log(e);
+  if (e.key === "w") {
+    pressedKeys.w = true;
+    lastKeyPressed = "w";
+  } else if (e.key === "a") {
+    pressedKeys.a = true;
+    lastKeyPressed = "a";
+  } else if (e.key === "s") {
+    pressedKeys.s = true;
+    lastKeyPressed = "s";
+  } else if (e.key === "d") {
+    pressedKeys.d = true;
+    lastKeyPressed = "d";
+  }
+});
+
+window.addEventListener("keyup", (e) => {
+  pressedKeys.w = false;
+  pressedKeys.a = false;
+  pressedKeys.s = false;
+  pressedKeys.d = false;
 });
 
 document.addEventListener(
