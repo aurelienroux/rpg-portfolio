@@ -2,6 +2,11 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+export const villageImg = new Image();
+villageImg.src = "./images/village.png";
+export const bearImg = new Image();
+bearImg.src = "./images/bear.png";
+
 export class Sprite {
   /**
    * Creates a new Sprite instance.
@@ -38,3 +43,27 @@ export function toggleFullScreen() {
     document.exitFullscreen();
   }
 }
+
+export const backgroundSprite = new Sprite({
+  image: villageImg,
+  position: {
+    x: -175,
+    y: -400,
+  },
+  size: {
+    width: 1600,
+    height: 1600,
+  },
+});
+
+export const bearSprite = new Sprite({
+  image: bearImg,
+  position: {
+    x: 1024 / 2 - 50,
+    y: 761 / 2 - 50,
+  },
+  size: {
+    width: 100,
+    height: 100,
+  },
+});
