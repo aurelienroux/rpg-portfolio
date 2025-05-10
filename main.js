@@ -32,13 +32,13 @@ async function main() {
   bearSprite.draw();
 
   if (!!pressedKeys.w && lastKeyPressed == "w") {
-    backgroundSprite.position.y += 3;
+    backgroundSprite.position.y += backgroundSprite.velocity;
   } else if (!!pressedKeys.a && lastKeyPressed == "a") {
-    backgroundSprite.position.x += 3;
+    backgroundSprite.position.x += backgroundSprite.velocity;
   } else if (!!pressedKeys.s && lastKeyPressed == "s") {
-    backgroundSprite.position.y -= 3;
+    backgroundSprite.position.y -= backgroundSprite.velocity;
   } else if (!!pressedKeys.d && lastKeyPressed == "d") {
-    backgroundSprite.position.x -= 3;
+    backgroundSprite.position.x -= backgroundSprite.velocity;
   }
 
   requestAnimationFrame(main);

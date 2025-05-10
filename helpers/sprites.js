@@ -9,20 +9,21 @@ bearImg.src = "./images/bear.png";
 
 export class Sprite {
   /**
-   * Creates a new Sprite instance.
-   * @param {Object} options - The options for the sprite.
-   * @param {HTMLImageElement} options.image - The image to be used for the sprite.
-   * @param {Object} options.position - The position of the sprite on the canvas.
-   * @param {number} options.position.x - The x-coordinate of the sprite.
-   * @param {number} options.position.y - The y-coordinate of the sprite.
-   * @param {Object} options.size - The size of the sprite.
-   * @param {number} options.size.width - The width of the sprite.
-   * @param {number} options.size.height - The height of the sprite.
+   * @param {Object} options
+   * @param {HTMLImageElement} options.image
+   * @param {Object} options.position
+   * @param {number} options.position.x
+   * @param {number} options.position.y
+   * @param {Object} options.size
+   * @param {number} options.size.width
+   * @param {number} options.size.height
+   * @param {number} velocity
    */
-  constructor({ image, position, size }) {
+  constructor({ image, position, size, velocity = 1 }) {
     this.image = image;
     this.position = position;
     this.size = size;
+    this.velocity = velocity;
   }
 
   draw() {
@@ -36,14 +37,6 @@ export class Sprite {
   }
 }
 
-export function toggleFullScreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
-  } else if (document.exitFullscreen) {
-    document.exitFullscreen();
-  }
-}
-
 export const backgroundSprite = new Sprite({
   image: villageImg,
   position: {
@@ -54,6 +47,7 @@ export const backgroundSprite = new Sprite({
     width: 1600,
     height: 1600,
   },
+  velocity: 4,
 });
 
 export const bearSprite = new Sprite({
@@ -67,3 +61,11 @@ export const bearSprite = new Sprite({
     height: 100,
   },
 });
+
+export function toggleFullScreen() {
+  if (!document.fullscreenElement) {
+    document.documentElement.requestFullscreen();
+  } else if (document.exitFullscreen) {
+    document.exitFullscreen();
+  }
+}
