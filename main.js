@@ -2,8 +2,8 @@ import {
   backgroundSprite,
   bearImg,
   bearSprite,
+  portfolioImg,
   toggleFullScreen,
-  villageImg,
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
 
@@ -21,7 +21,7 @@ function loadImage(image) {
  * Make sure img assets are loaded
  */
 async function preloadImages() {
-  await Promise.all([loadImage(villageImg), loadImage(bearImg)]);
+  await Promise.all([loadImage(bearImg), loadImage(portfolioImg)]);
 }
 
 /**

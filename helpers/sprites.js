@@ -2,8 +2,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-export const villageImg = new Image();
-villageImg.src = "./images/village.png";
+export const portfolioImg = new Image();
+portfolioImg.src = "./images/portfolio.png";
 export const bearImg = new Image();
 bearImg.src = "./images/bear.png";
 
@@ -31,21 +31,21 @@ export class Sprite {
       this.image,
       this.position.x,
       this.position.y,
-      this.size.height,
-      this.size.width
+      this.size.width,
+      this.size.height
     );
   }
 }
 
 export const backgroundSprite = new Sprite({
-  image: villageImg,
+  image: portfolioImg,
   position: {
     x: -175,
-    y: -400,
+    y: -1500,
   },
   size: {
-    width: 1600,
-    height: 1600,
+    width: 3072,
+    height: 2304,
   },
   velocity: 4,
 });
@@ -57,8 +57,8 @@ export const bearSprite = new Sprite({
     y: 761 / 2 - 50,
   },
   size: {
-    width: 100,
-    height: 100,
+    width: 48,
+    height: 48,
   },
 });
 
