@@ -37,24 +37,29 @@ export class Sprite {
   }
 }
 
+const originalBackgroundWidth = 3072;
+const originalBackgroundHeight = 2304;
+const canvasWidth = 1400;
+const canvasHeight = 900;
+
 export const backgroundSprite = new Sprite({
   image: backgroudImg,
   position: {
-    x: -175,
-    y: -1500,
+    x: -600,
+    y: -600,
   },
   size: {
-    width: 3072,
-    height: 2304,
+    width: originalBackgroundWidth,
+    height: originalBackgroundHeight,
   },
-  velocity: 4,
+  velocity: 6,
 });
 
 export const bearSprite = new Sprite({
   image: bearImg,
   position: {
-    x: 1024 / 2 - 50,
-    y: 761 / 2 - 50,
+    x: canvasWidth / 2 - 50,
+    y: canvasHeight / 2 - 50,
   },
   size: {
     width: 48,
