@@ -1,11 +1,11 @@
 import {
   backgroundSprite,
-  bearImg,
-  bearSprite,
   backgroudImg,
   toggleFullScreen,
   boundary,
   boundaryTwo,
+  playerImg,
+  playerSprite,
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
 
@@ -23,7 +23,7 @@ function loadImage(image) {
  * Make sure img assets are loaded
  */
 async function preloadImages() {
-  await Promise.all([loadImage(bearImg), loadImage(backgroudImg)]);
+  await Promise.all([loadImage(backgroudImg), loadImage(playerImg)]);
 }
 
 const movables = [backgroundSprite, boundary, boundaryTwo];
@@ -35,7 +35,7 @@ async function main() {
   backgroundSprite.draw();
   boundary.draw();
   boundaryTwo.draw();
-  bearSprite.draw();
+  playerSprite.draw();
 
   if (!!pressedKeys.w && lastKeyPressed == "w") {
     movables.forEach(
