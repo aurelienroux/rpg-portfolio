@@ -37,6 +37,55 @@ export class Sprite {
   }
 }
 
+class Boundary {
+  /**
+   * @param { Object } options
+   * @param { Object } options.position
+   * @param {number} options.position.x
+   * @param {number} options.position.y
+   * @param {Object} options.size
+   * @param {number} options.size.width
+   * @param {number} options.size.height
+   */
+  constructor({ position, size }) {
+    this.position = position;
+    this.size = size;
+  }
+
+  draw() {
+    ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
+    ctx.fillRect(
+      this.position.x,
+      this.position.y,
+      this.size.width,
+      this.size.height
+    );
+  }
+}
+const tileSizeInPixel = 48;
+
+export const boundary = new Boundary({
+  position: {
+    x: 600,
+    y: 600,
+  },
+  size: {
+    width: tileSizeInPixel,
+    height: tileSizeInPixel,
+  },
+});
+
+export const boundaryTwo = new Boundary({
+  position: {
+    x: 400,
+    y: 400,
+  },
+  size: {
+    width: 48,
+    height: 48,
+  },
+});
+
 const originalBackgroundWidth = 3072;
 const originalBackgroundHeight = 2304;
 const canvasWidth = 1400;

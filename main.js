@@ -4,6 +4,8 @@ import {
   bearSprite,
   backgroudImg,
   toggleFullScreen,
+  boundary,
+  boundaryTwo,
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
 
@@ -24,25 +26,41 @@ async function preloadImages() {
   await Promise.all([loadImage(bearImg), loadImage(backgroudImg)]);
 }
 
+const movables = [backgroundSprite, boundary, boundaryTwo];
+
 /**
  * Main animation loop
  */
 async function main() {
   backgroundSprite.draw();
+  boundary.draw();
+  boundaryTwo.draw();
   bearSprite.draw();
 
   if (!!pressedKeys.w && lastKeyPressed == "w") {
-    backgroundSprite.position.y += backgroundSprite.velocity;
+    movables.forEach(
+      (movable) => (movable.position.y += backgroundSprite.velocity)
+    );
   } else if (!!pressedKeys.a && lastKeyPressed == "a") {
-    backgroundSprite.position.x += backgroundSprite.velocity;
+    movables.forEach(
+      (movable) => (movable.position.x += backgroundSprite.velocity)
+    );
   } else if (!!pressedKeys.s && lastKeyPressed == "s") {
-    backgroundSprite.position.y -= backgroundSprite.velocity;
+    movables.forEach(
+      (movable) => (movable.position.y -= backgroundSprite.velocity)
+    );
   } else if (!!pressedKeys.d && lastKeyPressed == "d") {
-    backgroundSprite.position.x -= backgroundSprite.velocity;
+    movables.forEach(
+      (movable) => (movable.position.x -= backgroundSprite.velocity)
+    );
   }
 
   requestAnimationFrame(main);
 }
+
+/**
+ * App launch
+ */
 preloadImages().then(main);
 
 document.addEventListener(
