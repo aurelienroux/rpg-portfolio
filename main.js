@@ -1,23 +1,13 @@
 import {
   backgroundSprite,
   backgroudImg,
-  toggleFullScreen,
   boundary,
   boundaryTwo,
   playerImg,
   playerSprite,
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
-
-/**
- * @param {HTMLImageElement} image
- * @returns {Promise<void>}
- */
-function loadImage(image) {
-  return new Promise((res) => {
-    image.addEventListener("load", res);
-  });
-}
+import { loadImage, toggleFullScreen } from "./helpers/utils.js";
 
 /**
  * Make sure img assets are loaded
