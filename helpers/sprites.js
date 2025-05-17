@@ -2,8 +2,8 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-export const portfolioImg = new Image();
-portfolioImg.src = "./images/portfolio.png";
+export const backgroudImg = new Image();
+backgroudImg.src = "./images/background.png";
 export const bearImg = new Image();
 bearImg.src = "./images/bear.png";
 
@@ -38,7 +38,7 @@ export class Sprite {
 }
 
 export const backgroundSprite = new Sprite({
-  image: portfolioImg,
+  image: backgroudImg,
   position: {
     x: -175,
     y: -1500,
