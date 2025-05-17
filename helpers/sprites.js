@@ -43,8 +43,8 @@ export const playerSprite = new Sprite({
   },
   crop: {
     // player starts looking down
-    sx: 144,
-    sy: 0,
+    sx: 144, // x advance by multiple of 48
+    sy: 0, // y advance by multiple of 96
     sWidth: playerWidth,
     sHeight: playerHeight,
   },
@@ -56,8 +56,8 @@ export const playerSprite = new Sprite({
 
 export const boundary = new Boundary({
   position: {
-    x: 600,
-    y: 600,
+    x: 580,
+    y: 595,
   },
   size: {
     width: tileSizeInPixel,
@@ -67,7 +67,7 @@ export const boundary = new Boundary({
 
 export const boundaryTwo = new Boundary({
   position: {
-    x: 400,
+    x: 580,
     y: 400,
   },
   size: {
