@@ -8,8 +8,6 @@ const canvasHeight = 900;
 const playerWidth = 48;
 const playerHeight = 96;
 
-const tileSizeInPixel = 48; // map is exported on x3 ratio
-
 export const backgroudImg = new Image();
 export const playerImg = new Image();
 backgroudImg.src = "./images/background.png";
@@ -51,27 +49,5 @@ export const playerSprite = new Sprite({
   size: {
     width: playerWidth,
     height: playerHeight,
-  },
-});
-
-export const boundary = new Boundary({
-  position: {
-    x: 580,
-    y: 595,
-  },
-  size: {
-    width: tileSizeInPixel,
-    height: tileSizeInPixel,
-  },
-});
-
-export const boundaryTwo = new Boundary({
-  position: {
-    x: 580,
-    y: 400,
-  },
-  size: {
-    width: 48,
-    height: 48,
   },
 });
