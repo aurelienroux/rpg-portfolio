@@ -1,4 +1,4 @@
-import { Boundary, Sprite } from "./classes.js";
+import { Sprite } from "./classes.js";
 
 const originalBackgroundWidth = 3072;
 const originalBackgroundHeight = 2304;
@@ -7,6 +7,11 @@ const canvasHeight = 900;
 
 const playerWidth = 48;
 const playerHeight = 96;
+
+export const startingOffset = {
+  x: -331,
+  y: -412,
+};
 
 export const backgroudImg = new Image();
 export const playerImg = new Image();
@@ -23,8 +28,8 @@ export const backgroundSprite = new Sprite({
   },
   position: {
     // starts in the middle of the office
-    x: -331,
-    y: -412,
+    x: startingOffset.x,
+    y: startingOffset.y,
   },
   size: {
     width: originalBackgroundWidth,

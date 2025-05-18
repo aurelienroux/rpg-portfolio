@@ -6,8 +6,7 @@ import {
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
 import { loadImage, toggleFullScreen } from "./helpers/utils.js";
-import { collisionsMap } from "./helpers/collision.js";
-import { Boundary } from "./helpers/classes.js";
+import { boundaries } from "./helpers/collision.js";
 
 /**
  * Make sure img assets are loaded
@@ -16,26 +15,6 @@ async function preloadImages() {
   await Promise.all([loadImage(backgroudImg), loadImage(playerImg)]);
 }
 
-const boundaries = [];
-
-collisionsMap.map((row, i) => {
-  return row.map((collision, j) => {
-    if (collision === 14429) {
-      boundaries.push(
-        new Boundary({
-          position: {
-            x: j * 48 - 331,
-            y: i * 48 - 412,
-          },
-          size: {
-            width: 48,
-            height: 48,
-          },
-        })
-      );
-    }
-  });
-});
 const movables = [backgroundSprite, ...boundaries];
 
 /**
