@@ -56,7 +56,9 @@ export function isColliding(spriteOne, spriteTwo) {
   return (
     spriteOne.position.x + spriteOne.size.width >= spriteTwo.position.x &&
     spriteOne.position.x <= spriteTwo.position.x + spriteTwo.size.width &&
-    spriteOne.position.y <= spriteTwo.position.y + spriteTwo.size.height &&
+    // the player sprite is 2 tiles in height so need to add 1 full tile height for collision detection
+    spriteOne.position.y + tileSizeInPixel <=
+      spriteTwo.position.y + spriteTwo.size.height &&
     spriteOne.position.y + spriteOne.size.height >= spriteTwo.position.y
   );
 }
