@@ -4,12 +4,14 @@ import { startingOffset } from "./sprites.js";
 
 const tileSizeInPixel = 48; // map is exported on x3 ratio
 const tiledCollisionSymbol = 14429;
+const tiledWidth = 64;
 
+export const collisionMargin = 5;
 export const collisionsMap = [];
 export const boundaries = [];
 
-for (let i = 0; i < collisions.length; i += 64) {
-  collisionsMap.push(collisions.slice(i, 64 + i));
+for (let i = 0; i < collisions.length; i += tiledWidth) {
+  collisionsMap.push(collisions.slice(i, tiledWidth + i));
 }
 
 // fill up the boundaries map with respective sizes

@@ -1,8 +1,5 @@
-import {
-  animationThreshold,
-  fullAnimationCycle,
-  playerWidth,
-} from "./sprites.js";
+import { animationThreshold, fullAnimationCycle } from "./animation.js";
+import { playerWidth } from "./sprites.js";
 
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("canvas");
@@ -46,7 +43,6 @@ export class Sprite {
     this.animationCounter = animationCounter;
     this.animationMaxFrame = this.crop.sx + fullAnimationCycle;
     this.direction = direction;
-
     this.baseCrop = { sx: crop.sx, sy: crop.sy };
   }
 
@@ -58,16 +54,16 @@ export class Sprite {
       // Update baseCrop based on the direction
       switch (direction) {
         case "up":
-          this.baseCrop = { sx: 288, sy: 192 }; // Adjust to the "up" row
+          this.baseCrop = { sx: 288, sy: 192 };
           break;
         case "down":
-          this.baseCrop = { sx: 864, sy: 192 }; // Adjust to the "down" row
+          this.baseCrop = { sx: 864, sy: 192 };
           break;
         case "left":
-          this.baseCrop = { sx: 576, sy: 192 }; // Adjust to the "left" row
+          this.baseCrop = { sx: 576, sy: 192 };
           break;
         case "right":
-          this.baseCrop = { sx: 0, sy: 192 }; // Adjust to the "right" row
+          this.baseCrop = { sx: 0, sy: 192 };
           break;
       }
 
@@ -96,8 +92,8 @@ export class Sprite {
 
     this.animationCounter++;
 
-    if (this.animationCounter % 10 === 0) {
-      if (this.crop.sx < this.baseCrop.sx + 240) {
+    if (this.animationCounter % animationThreshold === 0) {
+      if (this.crop.sx < this.baseCrop.sx + fullAnimationCycle) {
         this.crop.sx += playerWidth;
       } else {
         this.crop.sx = this.baseCrop.sx; // Reset to the first frame of the current direction
