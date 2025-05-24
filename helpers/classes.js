@@ -1,3 +1,9 @@
+import {
+  animationThreshold,
+  fullAnimationCycle,
+  playerWidth,
+} from "./sprites.js";
+
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -18,13 +24,57 @@ export class Sprite {
    * @param {number} options.size.width
    * @param {number} options.size.height
    * @param {number} velocity
+   * @param {boolean} canMove
+   * @param {number} animationCounter
    */
-  constructor({ image, position, size, crop, velocity = 1 }) {
+  constructor({
+    image,
+    position,
+    size,
+    crop,
+    velocity = 1,
+    canMove = false,
+    animationCounter = 0,
+    direction,
+  }) {
     this.image = image;
     this.position = position;
     this.size = size;
     this.crop = crop;
     this.velocity = velocity;
+    this.canMove = canMove;
+    this.animationCounter = animationCounter;
+    this.animationMaxFrame = this.crop.sx + fullAnimationCycle;
+    this.direction = direction;
+
+    this.baseCrop = { sx: crop.sx, sy: crop.sy };
+  }
+
+  setDirection(direction) {
+    // Only update if the direction has changed
+    if (this.direction !== direction) {
+      this.direction = direction;
+
+      // Update baseCrop based on the direction
+      switch (direction) {
+        case "up":
+          this.baseCrop = { sx: 288, sy: 192 }; // Adjust to the "up" row
+          break;
+        case "down":
+          this.baseCrop = { sx: 864, sy: 192 }; // Adjust to the "down" row
+          break;
+        case "left":
+          this.baseCrop = { sx: 576, sy: 192 }; // Adjust to the "left" row
+          break;
+        case "right":
+          this.baseCrop = { sx: 0, sy: 192 }; // Adjust to the "right" row
+          break;
+      }
+
+      // Reset crop.sx to the base value for the new direction
+      this.crop.sx = this.baseCrop.sx;
+      this.crop.sy = this.baseCrop.sy;
+    }
   }
 
   draw() {
@@ -39,6 +89,20 @@ export class Sprite {
       this.size.width,
       this.size.height
     );
+
+    if (!this.canMove) {
+      return;
+    }
+
+    this.animationCounter++;
+
+    if (this.animationCounter % 10 === 0) {
+      if (this.crop.sx < this.baseCrop.sx + 240) {
+        this.crop.sx += playerWidth;
+      } else {
+        this.crop.sx = this.baseCrop.sx; // Reset to the first frame of the current direction
+      }
+    }
   }
 }
 

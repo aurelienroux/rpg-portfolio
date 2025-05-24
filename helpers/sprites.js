@@ -5,9 +5,38 @@ const originalBackgroundHeight = 2304;
 const canvasWidth = 1400;
 const canvasHeight = 900;
 
-const playerWidth = 48;
 const playerHeight = 96;
+export const playerWidth = 48;
+const animationSprite = 5; // 6 images spritesheet minus 1 width
+export const fullAnimationCycle = animationSprite * playerWidth;
+export const animationThreshold = 1000;
 
+const animationIdleDown = {
+  sx: 864,
+  sy: 96,
+};
+
+export const animationWalkUp = {
+  sx: 288,
+  sy: 192,
+};
+
+export const animationWalkLeft = {
+  sx: 576,
+  sy: 192,
+};
+
+export const animationWalkDown = {
+  sx: 864,
+  sy: 192,
+};
+
+export const animationWalkRight = {
+  sx: 0,
+  sy: 192,
+};
+
+// starts in the middle of the office
 export const startingOffset = {
   x: -331,
   y: -412,
@@ -27,7 +56,6 @@ export const backgroundSprite = new Sprite({
     sHeight: originalBackgroundHeight,
   },
   position: {
-    // starts in the middle of the office
     x: startingOffset.x,
     y: startingOffset.y,
   },
@@ -46,8 +74,10 @@ export const playerSprite = new Sprite({
   },
   crop: {
     // player starts looking down
-    sx: 144, // x advance by multiple of 48
-    sy: 0, // y advance by multiple of 96
+    sx: animationWalkDown.sx, // x advance by multiple of 48
+    sy: animationWalkDown.sy, // y advance by multiple of 96
+    // sx: 864, // x advance by multiple of 48
+    // sy: 192, // y advance by multiple of 96
     sWidth: playerWidth,
     sHeight: playerHeight,
   },
@@ -55,4 +85,6 @@ export const playerSprite = new Sprite({
     width: playerWidth,
     height: playerHeight,
   },
+  canMove: false,
+  direction: "down",
 });

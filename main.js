@@ -1,4 +1,11 @@
-import { backgroundSprite, playerSprite } from "./helpers/sprites.js";
+import {
+  animationThreshold,
+  animationWalkDown,
+  backgroundSprite,
+  fullAnimationCycle,
+  playerSprite,
+  playerWidth,
+} from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
 import { preloadImages, toggleFullScreen } from "./helpers/utils.js";
 import { boundaries, isColliding } from "./helpers/collision.js";
@@ -13,10 +20,14 @@ async function main() {
   boundaries.forEach((boundary) => boundary.draw());
   playerSprite.draw();
 
-  let canMove = true;
+  let collisionCanMove = true;
   const collisionMargin = 5;
+  playerSprite.canMove = false;
 
   if (!!pressedKeys.w && lastKeyPressed == "w") {
+    playerSprite.canMove = true;
+    playerSprite.setDirection("up");
+
     for (let index = 0; index < boundaries.length; index++) {
       const element = boundaries[index];
       if (
@@ -28,17 +39,20 @@ async function main() {
           },
         })
       ) {
-        canMove = false;
+        collisionCanMove = false;
         break;
       }
     }
 
-    if (canMove) {
+    if (collisionCanMove) {
       movables.forEach(
         (movable) => (movable.position.y += backgroundSprite.velocity)
       );
     }
   } else if (!!pressedKeys.a && lastKeyPressed == "a") {
+    playerSprite.canMove = true;
+    playerSprite.setDirection("left");
+
     for (let index = 0; index < boundaries.length; index++) {
       const element = boundaries[index];
       if (
@@ -50,17 +64,20 @@ async function main() {
           },
         })
       ) {
-        canMove = false;
+        collisionCanMove = false;
         break;
       }
     }
 
-    if (canMove) {
+    if (collisionCanMove) {
       movables.forEach(
         (movable) => (movable.position.x += backgroundSprite.velocity)
       );
     }
   } else if (!!pressedKeys.s && lastKeyPressed == "s") {
+    playerSprite.canMove = true;
+    playerSprite.setDirection("down");
+
     for (let index = 0; index < boundaries.length; index++) {
       const element = boundaries[index];
       if (
@@ -72,17 +89,20 @@ async function main() {
           },
         })
       ) {
-        canMove = false;
+        collisionCanMove = false;
         break;
       }
     }
 
-    if (canMove) {
+    if (collisionCanMove) {
       movables.forEach(
         (movable) => (movable.position.y -= backgroundSprite.velocity)
       );
     }
   } else if (!!pressedKeys.d && lastKeyPressed == "d") {
+    playerSprite.canMove = true;
+    playerSprite.setDirection("right");
+
     for (let index = 0; index < boundaries.length; index++) {
       const element = boundaries[index];
       if (
@@ -94,12 +114,12 @@ async function main() {
           },
         })
       ) {
-        canMove = false;
+        collisionCanMove = false;
         break;
       }
     }
 
-    if (canMove) {
+    if (collisionCanMove) {
       movables.forEach(
         (movable) => (movable.position.x -= backgroundSprite.velocity)
       );
