@@ -1,4 +1,11 @@
-import { animationThreshold, fullAnimationCycle } from "./animation.js";
+import {
+  animationThreshold,
+  animationWalkDown,
+  animationWalkLeft,
+  animationWalkRight,
+  animationWalkUp,
+  fullAnimationCycle,
+} from "./animation.js";
 import { playerWidth } from "./sprites.js";
 
 /** @type {HTMLCanvasElement} */
@@ -41,7 +48,6 @@ export class Sprite {
     this.velocity = velocity;
     this.canMove = canMove;
     this.animationCounter = animationCounter;
-    this.animationMaxFrame = this.crop.sx + fullAnimationCycle;
     this.direction = direction;
     this.baseCrop = { sx: crop.sx, sy: crop.sy };
   }
@@ -54,16 +60,25 @@ export class Sprite {
       // Update baseCrop based on the direction
       switch (direction) {
         case "up":
-          this.baseCrop = { sx: 288, sy: 192 };
+          this.baseCrop = { sx: animationWalkUp.sx, sy: animationWalkUp.sy };
           break;
         case "down":
-          this.baseCrop = { sx: 864, sy: 192 };
+          this.baseCrop = {
+            sx: animationWalkDown.sx,
+            sy: animationWalkDown.sy,
+          };
           break;
         case "left":
-          this.baseCrop = { sx: 576, sy: 192 };
+          this.baseCrop = {
+            sx: animationWalkLeft.sx,
+            sy: animationWalkLeft.sy,
+          };
           break;
         case "right":
-          this.baseCrop = { sx: 0, sy: 192 };
+          this.baseCrop = {
+            sx: animationWalkRight.sx,
+            sy: animationWalkRight.sy,
+          };
           break;
       }
 

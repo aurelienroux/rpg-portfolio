@@ -2,16 +2,17 @@ import { collisions } from "../data/collision.js";
 import { Boundary } from "./classes.js";
 import { startingOffset } from "./sprites.js";
 
-const tileSizeInPixel = 48; // map is exported on x3 ratio
+const tileSizeInPixel = 48; // map is exported on x3 ratio (16px * 3)
 const tiledCollisionSymbol = 14429;
-const tiledWidth = 64;
+const tiledMapWidth = 64;
 
 export const collisionMargin = 5;
 export const collisionsMap = [];
 export const boundaries = [];
 
-for (let i = 0; i < collisions.length; i += tiledWidth) {
-  collisionsMap.push(collisions.slice(i, tiledWidth + i));
+// map collisions data based on Tiled export map width
+for (let i = 0; i < collisions.length; i += tiledMapWidth) {
+  collisionsMap.push(collisions.slice(i, tiledMapWidth + i));
 }
 
 // fill up the boundaries map with respective sizes
