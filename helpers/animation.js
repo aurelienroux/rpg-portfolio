@@ -1,9 +1,24 @@
 export const fullAnimationCycle = 240; // 5 animation sprites * 48 width
 export const animationThreshold = 8;
 
-export const animationIdleDown = {
-  sx: 864,
+export const animationIdleUp = {
+  sx: 0,
+  sy: 48,
+};
+
+export const animationIdleLeft = {
+  sx: 0,
   sy: 96,
+};
+
+export const animationIdleDown = {
+  sx: 0,
+  sy: 144,
+};
+
+export const animationIdleRight = {
+  sx: 0,
+  sy: 0,
 };
 
 export const animationWalkUp = {
