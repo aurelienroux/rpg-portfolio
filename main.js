@@ -1,4 +1,8 @@
-import { backgroundSprite, playerSprite } from "./helpers/sprites.js";
+import {
+  backgroundSprite,
+  foregroundSprite,
+  playerSprite,
+} from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
 import { preloadImages, toggleFullScreen } from "./helpers/utils.js";
 import {
@@ -7,18 +11,18 @@ import {
   isColliding,
 } from "./helpers/collision.js";
 
-const movables = [backgroundSprite, ...boundaries];
+const movables = [backgroundSprite, ...boundaries, foregroundSprite];
 
 /**
  * Main animation loop
  */
 async function main() {
   backgroundSprite.draw();
+  playerSprite.draw();
+  foregroundSprite.draw();
 
   boundaries.forEach((boundary) => boundary.draw());
   let collisionCanMove = true;
-
-  playerSprite.draw();
   playerSprite.canMove = false;
 
   if (!!pressedKeys.w && lastKeyPressed == "w") {

@@ -10,8 +10,10 @@ const playerHeight = 96;
 export const playerWidth = 48;
 
 export const backgroudImg = new Image();
+export const foregroundImg = new Image();
 export const playerImg = new Image();
 backgroudImg.src = "./images/background.png";
+foregroundImg.src = "./images/foreground.png";
 playerImg.src = "./images/player.png";
 
 // starts in the middle of the office
@@ -22,6 +24,25 @@ export const startingOffset = {
 
 export const backgroundSprite = new Sprite({
   image: backgroudImg,
+  crop: {
+    sx: 0,
+    sy: 0,
+    sWidth: originalBackgroundWidth,
+    sHeight: originalBackgroundHeight,
+  },
+  position: {
+    x: startingOffset.x,
+    y: startingOffset.y,
+  },
+  size: {
+    width: originalBackgroundWidth,
+    height: originalBackgroundHeight,
+  },
+  velocity: 6,
+});
+
+export const foregroundSprite = new Sprite({
+  image: foregroundImg,
   crop: {
     sx: 0,
     sy: 0,
