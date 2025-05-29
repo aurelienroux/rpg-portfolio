@@ -1,0 +1,43 @@
+:root {
+  --black: #000;
+  --white: #fff;
+}
+
+html {
+  background-color: var(--black);
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  align-items: center;
+  background-color: var(--black);
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+  font-family: "VT323", monospace;
+  font-size: 1.2em;
+}
+
+canvas {
+  background: var(--black);
+  display: block;
+  height: 100%;
+}
+
+#ui {
+  background: linear-gradient(to bottom, #0205cc 0%, #0a40d6 0%, #03166d 100%);
+  border: 2px solid var(--white);
+  border-radius: 10px;
+  bottom: 10%;
+  color: var(--white);
+  padding: 1.2em 1.2em 1.5em;
+  box-sizing: border-box;
+  height: auto;
+  max-width: 700px;
+  position: absolute;
+  width: 80%;
+}
