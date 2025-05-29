@@ -144,9 +144,10 @@ export class Boundary {
 }
 
 export class DialogBox {
-  constructor({ position, size }) {
+  constructor({ position, size, text }) {
     this.position = position;
     this.size = size;
+    this.text = text;
   }
 
   draw() {

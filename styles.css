@@ -1,12 +1,21 @@
 :root {
   --black: #000;
   --white: #fff;
+  --blue-gradient: linear-gradient(
+    to bottom,
+    #0205cc 0%,
+    #0a40d6 0%,
+    #03166d 100%
+  );
+  --border: 2px solid var(--white);
 }
 
 html {
   background-color: var(--black);
   height: 100%;
   overflow: hidden;
+  color: var(--white);
+  font-family: "VT323", monospace;
 }
 
 body {
@@ -28,16 +37,35 @@ canvas {
   height: 100%;
 }
 
-#ui {
-  background: linear-gradient(to bottom, #0205cc 0%, #0a40d6 0%, #03166d 100%);
-  border: 2px solid var(--white);
+#dialog {
+  background: var(--blue-gradient);
+  border: var(--border);
   border-radius: 10px;
-  bottom: 10%;
-  color: var(--white);
+  bottom: 20%;
   padding: 1.2em 1.2em 1.5em;
   box-sizing: border-box;
   height: auto;
   max-width: 700px;
   position: absolute;
   width: 80%;
+}
+
+#commands {
+  position: absolute;
+  bottom: 3%;
+  left: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4em;
+  align-items: center;
+}
+
+#commands button {
+  background: var(--blue-gradient);
+  border-radius: 5px;
+  border: var(--border);
+  color: var(--white);
+  font-family: "VT323", monospace;
+  font-size: 1.2em;
+  padding: 0.4em;
 }

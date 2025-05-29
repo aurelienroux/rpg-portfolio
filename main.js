@@ -21,9 +21,29 @@ const dialog = new DialogBox({
     width: 48,
     height: 48,
   },
+  text: "first dialog box",
 });
 
-const movables = [backgroundSprite, ...boundaries, foregroundSprite, dialog];
+const dialogTwo = new DialogBox({
+  position: {
+    x: 650,
+    y: 650,
+  },
+  size: {
+    height: 48,
+    width: 48,
+  },
+  text: "second dialog box",
+});
+
+const dialogs = [dialog, dialogTwo];
+
+const movables = [
+  backgroundSprite,
+  foregroundSprite,
+  ...boundaries,
+  ...dialogs,
+];
 
 /**
  * Main animation loop
@@ -33,7 +53,7 @@ async function main() {
   playerSprite.draw();
   foregroundSprite.draw();
 
-  dialog.draw();
+  dialogs.forEach((dialog) => dialog.draw());
 
   boundaries.forEach((boundary) => boundary.draw());
   let collisionCanMove = true;
@@ -44,18 +64,25 @@ async function main() {
     playerSprite.setDirection("up");
 
     for (let index = 0; index < boundaries.length; index++) {
-      const element = boundaries[index];
+      const boundary = boundaries[index];
       if (
         isColliding(playerSprite, {
-          ...element,
+          ...boundary,
           position: {
-            x: element.position.x,
-            y: element.position.y + collisionMargin,
+            x: boundary.position.x,
+            y: boundary.position.y + collisionMargin,
           },
         })
       ) {
         collisionCanMove = false;
         break;
+      }
+    }
+
+    for (let index = 0; index < dialogs.length; index++) {
+      const dialog = dialogs[index];
+      if (isColliding(playerSprite, dialog)) {
+        console.log("yo", dialog.text);
       }
     }
 
