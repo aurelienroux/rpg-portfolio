@@ -8,6 +8,7 @@
     #03166d 100%
   );
   --border: 2px solid var(--white);
+  --font-family: "VT323", monospace;
 }
 
 html {
@@ -15,7 +16,7 @@ html {
   height: 100%;
   overflow: hidden;
   color: var(--white);
-  font-family: "VT323", monospace;
+  font-family: var(--font-family);
 }
 
 body {
@@ -27,7 +28,7 @@ body {
   margin: 0;
   overflow: hidden;
   position: relative;
-  font-family: "VT323", monospace;
+  font-family: var(--font-family);
   font-size: 1.2em;
 }
 
@@ -50,42 +51,29 @@ canvas {
   width: 80%;
 }
 
-#commands-left {
+.commands {
   position: absolute;
   bottom: 3%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  align-items: center;
+}
+
+.commands-left {
   left: 3%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4em;
-  align-items: center;
 }
 
-#commands-right {
-  position: absolute;
-  bottom: 3%;
+.commands-right {
   right: 3%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4em;
-  align-items: center;
 }
 
-#commands-left button {
+.commands button {
   background: var(--blue-gradient);
   border-radius: 5px;
   border: var(--border);
   color: var(--white);
-  font-family: "VT323", monospace;
-  font-size: 1.2em;
-  padding: 0.4em;
-}
-
-#commands-right button {
-  background: var(--blue-gradient);
-  border-radius: 5px;
-  border: var(--border);
-  color: var(--white);
-  font-family: "VT323", monospace;
+  font-family: var(--font-family);
   font-size: 1.2em;
   padding: 0.4em;
 }
