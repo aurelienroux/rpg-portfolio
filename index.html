@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aurelien Roux | Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+    />
     <style>
       html {
         background-color: #000;
@@ -18,6 +24,9 @@
         justify-content: center;
         margin: 0;
         overflow: hidden;
+        position: relative;
+        font-family: "VT323", monospace;
+        font-size: 1.2em;
       }
       canvas {
         background: #000;
@@ -25,9 +34,31 @@
         height: 100%;
         max-width: 900;
       }
+      #ui {
+        background: linear-gradient(
+          to bottom,
+          #0205cc 0%,
+          #0a40d6 0%,
+          #03166d 100%
+        );
+        border: 2px solid white;
+        border-radius: 10px;
+        color: white;
+        padding: 2em;
+        box-sizing: border-box;
+        height: auto;
+        max-width: 700px;
+        position: absolute;
+        width: 80%;
+      }
     </style>
   </head>
   <body>
+    <div id="ui">
+      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit nesciunt
+      qui odit eum beatae fuga voluptates iure accusamus cumque, minima harum
+      veritatis, quaerat aliquam delectus dolorum, error quasi ea. Pariatur? 0
+    </div>
     <canvas id="canvas" width="1400" height="900"> fallback </canvas>
     <script type="module" src="main.js"></script>
   </body>

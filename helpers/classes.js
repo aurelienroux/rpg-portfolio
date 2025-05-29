@@ -142,3 +142,20 @@ export class Boundary {
     );
   }
 }
+
+export class DialogBox {
+  constructor({ position, size }) {
+    this.position = position;
+    this.size = size;
+  }
+
+  draw() {
+    ctx.fillStyle = "rgba(255, 255, 0, 0.5)";
+    ctx.fillRect(
+      this.position.x,
+      this.position.y,
+      this.size.width,
+      this.size.height
+    );
+  }
+}

@@ -10,8 +10,20 @@ import {
   collisionMargin,
   isColliding,
 } from "./helpers/collision.js";
+import { DialogBox } from "./helpers/classes.js";
 
-const movables = [backgroundSprite, ...boundaries, foregroundSprite];
+const dialog = new DialogBox({
+  position: {
+    x: 500,
+    y: 500,
+  },
+  size: {
+    width: 48,
+    height: 48,
+  },
+});
+
+const movables = [backgroundSprite, ...boundaries, foregroundSprite, dialog];
 
 /**
  * Main animation loop
@@ -20,6 +32,8 @@ async function main() {
   backgroundSprite.draw();
   playerSprite.draw();
   foregroundSprite.draw();
+
+  dialog.draw();
 
   boundaries.forEach((boundary) => boundary.draw());
   let collisionCanMove = true;
