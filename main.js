@@ -12,6 +12,8 @@ import {
 } from "./helpers/collision.js";
 import { DialogBox } from "./helpers/classes.js";
 
+const space = document.getElementById("space");
+
 const dialog = new DialogBox({
   position: {
     x: 500,
@@ -82,7 +84,10 @@ async function main() {
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
-        console.log("yo", dialog.text);
+        space.classList.remove("hidden");
+        break;
+      } else {
+        space.classList.add("hidden");
       }
     }
 
@@ -111,6 +116,16 @@ async function main() {
       }
     }
 
+    for (let index = 0; index < dialogs.length; index++) {
+      const dialog = dialogs[index];
+      if (isColliding(playerSprite, dialog)) {
+        space.classList.remove("hidden");
+        break;
+      } else {
+        space.classList.add("hidden");
+      }
+    }
+
     if (collisionCanMove) {
       movables.forEach(
         (movable) => (movable.position.x += backgroundSprite.velocity)
@@ -136,6 +151,16 @@ async function main() {
       }
     }
 
+    for (let index = 0; index < dialogs.length; index++) {
+      const dialog = dialogs[index];
+      if (isColliding(playerSprite, dialog)) {
+        space.classList.remove("hidden");
+        break;
+      } else {
+        space.classList.add("hidden");
+      }
+    }
+
     if (collisionCanMove) {
       movables.forEach(
         (movable) => (movable.position.y -= backgroundSprite.velocity)
@@ -158,6 +183,16 @@ async function main() {
       ) {
         collisionCanMove = false;
         break;
+      }
+    }
+
+    for (let index = 0; index < dialogs.length; index++) {
+      const dialog = dialogs[index];
+      if (isColliding(playerSprite, dialog)) {
+        space.classList.remove("hidden");
+        break;
+      } else {
+        space.classList.add("hidden");
       }
     }
 
