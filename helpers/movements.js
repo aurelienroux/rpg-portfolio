@@ -3,7 +3,6 @@
  */
 export let pressedKeys = { w: false, a: false, s: false, d: false };
 
-/** @type {string} */
 export let lastKeyPressed = "";
 
 window.addEventListener("keydown", (e) => {

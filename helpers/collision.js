@@ -38,21 +38,21 @@ collisionsMap.map((row, i) => {
 /**
  * Checks if two sprites are colliding based on their positions and sizes.
  *
- * @param {Object} spriteOne - The first sprite object.
- * @param {Object} spriteOne.position - The position of the first sprite.
- * @param {number} spriteOne.position.x - The x-coordinate of the first sprite.
- * @param {number} spriteOne.position.y - The y-coordinate of the first sprite.
- * @param {Object} spriteOne.size - The size of the first sprite.
- * @param {number} spriteOne.size.width - The width of the first sprite.
- * @param {number} spriteOne.size.height - The height of the first sprite.
- * @param {Object} spriteTwo - The second sprite object.
- * @param {Object} spriteTwo.position - The position of the second sprite.
- * @param {number} spriteTwo.position.x - The x-coordinate of the second sprite.
- * @param {number} spriteTwo.position.y - The y-coordinate of the second sprite.
- * @param {Object} spriteTwo.size - The size of the second sprite.
- * @param {number} spriteTwo.size.width - The width of the second sprite.
- * @param {number} spriteTwo.size.height - The height of the second sprite.
- * @returns {boolean} True if the two sprites are colliding, otherwise false.
+ * @param {Object} spriteOne
+ * @param {Object} spriteOne.position
+ * @param {number} spriteOne.position.x
+ * @param {number} spriteOne.position.y
+ * @param {Object} spriteOne.size
+ * @param {number} spriteOne.size.width
+ * @param {number} spriteOne.size.height
+ * @param {Object} spriteTwo
+ * @param {Object} spriteTwo.position
+ * @param {number} spriteTwo.position.x
+ * @param {number} spriteTwo.position.y
+ * @param {Object} spriteTwo.size
+ * @param {number} spriteTwo.size.width
+ * @param {number} spriteTwo.size.height
+ * @returns {boolean}
  *
  */
 export function isColliding(spriteOne, spriteTwo) {

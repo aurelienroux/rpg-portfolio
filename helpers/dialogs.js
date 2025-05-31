@@ -4,10 +4,9 @@ import { tileSizeInPixel } from "./collision.js";
 export const spaceBtn = document.getElementById("space-btn");
 export const dialogBoxElement = document.getElementById("dialog-box");
 export const dialogBoxTextElement = document.getElementById("dialog-box-text");
-
 export const hiddenClass = "hidden";
-let canInteract = false;
 
+let canInteract = false;
 export function setCanInteract(value) {
   canInteract = value;
 }

@@ -1,4 +1,4 @@
-export const fullAnimationCycle = 240; // 5 animation sprites * 48 width
+export const fullAnimationCycle = 240; // 5 frames animation spritesheet * 48px width
 export const animationThreshold = 8;
 
 export const animationIdleUp = {

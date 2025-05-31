@@ -53,11 +53,10 @@ export class Sprite {
   }
 
   setDirection(direction) {
-    // Only update if the direction has changed
     if (this.direction !== direction) {
       this.direction = direction;
 
-      // Update baseCrop based on the direction
+      // Update baseCrop based on the direction to run correct spritesheet animation
       switch (direction) {
         case "up":
           this.baseCrop = { sx: animationWalkUp.sx, sy: animationWalkUp.sy };
