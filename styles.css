@@ -34,7 +34,7 @@ body {
 
 @media (min-width: 600px) {
   body {
-    font-size: 1.6em;
+    font-size: 1.4em;
   }
 }
 
@@ -46,19 +46,6 @@ canvas {
 
 a {
   color: var(--white);
-}
-
-#dialog-box {
-  background: var(--blue-gradient);
-  border: var(--border);
-  border-radius: 10px;
-  bottom: 20%;
-  padding: 1em 1em 1.2em;
-  box-sizing: border-box;
-  height: auto;
-  max-width: 700px;
-  position: absolute;
-  width: 80%;
 }
 
 .commands {
@@ -88,7 +75,24 @@ a {
   padding: 0.4em;
 }
 
-.close {
+.hidden {
+  display: none;
+}
+
+#dialog-box {
+  background: var(--blue-gradient);
+  border: var(--border);
+  border-radius: 10px;
+  bottom: 24%;
+  padding: 1em 1em 1.2em;
+  box-sizing: border-box;
+  height: auto;
+  max-width: 700px;
+  position: absolute;
+  width: 80%;
+}
+
+.dialog-box-close {
   background: transparent;
   border-radius: 5px;
   border: var(--border);
@@ -100,6 +104,20 @@ a {
   padding: 0.4em;
 }
 
-.hidden {
-  display: none;
+.dialog-box-choices {
+  list-style-type: none;
+}
+
+.dialog-box-choices li {
+  margin-bottom: 8px;
+}
+
+.dialog-box-choices li[data-selected="true"] {
+  position: relative;
+}
+
+.dialog-box-choices li[data-selected="true"]:before {
+  content: "🐻‍❄️";
+  position: absolute;
+  left: -35px;
 }
