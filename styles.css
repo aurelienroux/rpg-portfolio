@@ -104,19 +104,19 @@ a {
   padding: 0.4em;
 }
 
-.dialog-box-choices {
+#dialog-box-choices {
   list-style-type: none;
 }
 
-.dialog-box-choices li {
+#dialog-box-choices li {
   margin-bottom: 8px;
 }
 
-.dialog-box-choices li[data-selected="true"] {
+#dialog-box-choices li[data-selected="true"] {
   position: relative;
 }
 
-.dialog-box-choices li[data-selected="true"]:before {
+#dialog-box-choices li[data-selected="true"]:before {
   content: "🐻‍❄️";
   position: absolute;
   left: -35px;

@@ -1,4 +1,4 @@
-import { DialogBox } from "./classes.js";
+import { DialogBox, DialogChoicesBox } from "./classes.js";
 import { tileSizeInPixel } from "./collision.js";
 
 export const spaceBtn = document.getElementById("space-btn");
@@ -7,19 +7,13 @@ export const dialogBoxTextElement = document.getElementById("dialog-box-text");
 
 export const hiddenClass = "hidden";
 let canInteract = false;
-let currentDialog = "";
 
 export function setCanInteract(value) {
   canInteract = value;
 }
 
-export function setCurrentDialog(value) {
-  currentDialog = value;
-}
-
 window.addEventListener("keydown", (e) => {
   if (!!canInteract && e.key === " ") {
-    dialogBoxTextElement.innerHTML = currentDialog;
     dialogBoxElement.classList.toggle(hiddenClass);
   }
 
@@ -28,7 +22,7 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-export const dialog = new DialogBox({
+const dialog = new DialogBox({
   position: {
     x: 500,
     y: 500,
@@ -40,7 +34,7 @@ export const dialog = new DialogBox({
   text: "first dialog box <a target='_blank' href='https://google.ca'> here</a>",
 });
 
-export const dialogTwo = new DialogBox({
+const dialogTwo = new DialogBox({
   position: {
     x: 650,
     y: 650,
@@ -52,4 +46,31 @@ export const dialogTwo = new DialogBox({
   text: "second dialog box",
 });
 
-export const dialogs = [dialog, dialogTwo];
+const testChoices = new DialogChoicesBox({
+  position: {
+    x: 600,
+    y: 800,
+  },
+  size: {
+    width: tileSizeInPixel,
+    height: tileSizeInPixel,
+  },
+  text: "this is le text",
+  choices: [
+    {
+      displayText: "le text a display",
+      url: "https://google.com",
+    },
+    {
+      displayText: "le text a display 2",
+      url: "https://google.ca",
+    },
+    {
+      displayText: "le text a display 3",
+      url: "https://google.ca",
+    },
+  ],
+});
+
+/** @type {(DialogBox|DialogChoicesBox)[]} */
+export const dialogs = [dialog, dialogTwo, testChoices];

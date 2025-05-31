@@ -144,10 +144,33 @@ export class Boundary {
 }
 
 export class DialogBox {
+  /**
+   * @param {Object} options
+   * @param {Object} options.position
+   * @param {number} options.position.x
+   * @param {number} options.position.y
+   * @param {Object} options.size
+   * @param {number} options.size.width
+   * @param {number} options.size.height
+   * @param {string} options.text
+   * @param {Array<choice>} options.choices
+   */
   constructor({ position, size, text }) {
     this.position = position;
     this.size = size;
     this.text = text;
+  }
+
+  setDialogBoxText() {
+    const dialogBoxTextElement = document.getElementById("dialog-box-text");
+    dialogBoxTextElement.innerHTML = this.text;
+  }
+
+  clearChoices() {
+    const dialogBoxChoicesElement =
+      document.getElementById("dialog-box-choices");
+
+    dialogBoxChoicesElement.innerHTML = "";
   }
 
   draw() {
@@ -158,5 +181,38 @@ export class DialogBox {
       this.size.width,
       this.size.height
     );
+  }
+}
+
+/**
+ * @typedef {Object} choice
+ * @property {string} displayText
+ * @property {string} url
+ */
+
+export class DialogChoicesBox extends DialogBox {
+  /**
+   * @param {Object} options
+   * @param {Array<choice>} options.choices
+   */
+  constructor({ position, size, text, choices }) {
+    super({ position, size, text });
+    this.choices = choices;
+  }
+
+  createChoices() {
+    const dialogBoxChoicesElement =
+      document.getElementById("dialog-box-choices");
+
+    this.choices.forEach((choice, index) => {
+      const listElement = document.createElement("li");
+
+      listElement.innerHTML = choice.displayText;
+      if (index === 0) {
+        listElement.dataset.selected = true;
+      }
+
+      dialogBoxChoicesElement.appendChild(listElement);
+    });
   }
 }

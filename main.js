@@ -15,7 +15,6 @@ import {
   dialogs,
   hiddenClass,
   setCanInteract,
-  setCurrentDialog,
   spaceBtn,
 } from "./helpers/dialogs.js";
 
@@ -64,10 +63,16 @@ async function main() {
     // dialogs interaction
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
+
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
         setCanInteract(true);
-        setCurrentDialog(dialog.text);
+
+        dialog.setDialogBoxText();
+        dialog.clearChoices();
+        if (dialog.choices?.length > 0) {
+          dialog.createChoices();
+        }
         break;
       } else {
         spaceBtn.classList.add(hiddenClass);
@@ -108,7 +113,12 @@ async function main() {
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
         setCanInteract(true);
-        setCurrentDialog(dialog.text);
+
+        dialog.setDialogBoxText();
+        dialog.clearChoices();
+        if (dialog.choices?.length > 0) {
+          dialog.createChoices();
+        }
         break;
       } else {
         spaceBtn.classList.add(hiddenClass);
@@ -149,7 +159,12 @@ async function main() {
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
         setCanInteract(true);
-        setCurrentDialog(dialog.text);
+
+        dialog.setDialogBoxText();
+        dialog.clearChoices();
+        if (dialog.choices?.length > 0) {
+          dialog.createChoices();
+        }
         break;
       } else {
         spaceBtn.classList.add(hiddenClass);
@@ -190,7 +205,12 @@ async function main() {
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
         setCanInteract(true);
-        setCurrentDialog(dialog.text);
+
+        dialog.setDialogBoxText();
+        dialog.clearChoices();
+        if (dialog.choices?.length > 0) {
+          dialog.createChoices();
+        }
         break;
       } else {
         spaceBtn.classList.add(hiddenClass);
