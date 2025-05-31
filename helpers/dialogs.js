@@ -32,7 +32,7 @@ export const dialog = new DialogBox({
     width: tileSizeInPixel,
     height: tileSizeInPixel,
   },
-  text: "first dialog box",
+  text: "first dialog box <a target='_blank' href='https://google.ca'> here</a>",
 });
 
 export const dialogTwo = new DialogBox({

@@ -44,6 +44,10 @@ canvas {
   height: 100%;
 }
 
+a {
+  color: var(--white);
+}
+
 #dialog-box {
   background: var(--blue-gradient);
   border: var(--border);
