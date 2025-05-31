@@ -32,13 +32,19 @@ body {
   font-size: 1.2em;
 }
 
+@media (min-width: 600px) {
+  body {
+    font-size: 1.6em;
+  }
+}
+
 canvas {
   background: var(--black);
   display: block;
   height: 100%;
 }
 
-#dialog {
+#dialog-box {
   background: var(--blue-gradient);
   border: var(--border);
   border-radius: 10px;

@@ -12,7 +12,10 @@ import {
 } from "./helpers/collision.js";
 import { DialogBox } from "./helpers/classes.js";
 
-const space = document.getElementById("space");
+const spaceBtn = document.getElementById("space-btn");
+const dialogBox = document.getElementById("dialog-box");
+
+let currentDialog = "";
 
 const dialog = new DialogBox({
   position: {
@@ -46,6 +49,16 @@ const movables = [
   ...boundaries,
   ...dialogs,
 ];
+
+/** @type {boolean} */
+export let canInteract = false;
+
+window.addEventListener("keydown", (e) => {
+  if (!!canInteract && e.key === " ") {
+    dialogBox.innerHTML = currentDialog;
+    dialogBox.classList.toggle("hidden");
+  }
+});
 
 /**
  * Main animation loop
@@ -84,10 +97,14 @@ async function main() {
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
-        space.classList.remove("hidden");
+        spaceBtn.classList.remove("hidden");
+        canInteract = true;
+        currentDialog = dialog.text;
         break;
       } else {
-        space.classList.add("hidden");
+        spaceBtn.classList.add("hidden");
+        dialogBox.classList.add("hidden");
+        canInteract = false;
       }
     }
 
@@ -119,10 +136,14 @@ async function main() {
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
-        space.classList.remove("hidden");
+        spaceBtn.classList.remove("hidden");
+        canInteract = true;
+        currentDialog = dialog.text;
         break;
       } else {
-        space.classList.add("hidden");
+        spaceBtn.classList.add("hidden");
+        dialogBox.classList.add("hidden");
+        canInteract = false;
       }
     }
 
@@ -154,10 +175,14 @@ async function main() {
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
-        space.classList.remove("hidden");
+        spaceBtn.classList.remove("hidden");
+        canInteract = true;
+        currentDialog = dialog.text;
         break;
       } else {
-        space.classList.add("hidden");
+        spaceBtn.classList.add("hidden");
+        dialogBox.classList.add("hidden");
+        canInteract = false;
       }
     }
 
@@ -189,10 +214,14 @@ async function main() {
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
-        space.classList.remove("hidden");
+        spaceBtn.classList.remove("hidden");
+        canInteract = true;
+        currentDialog = dialog.text;
         break;
       } else {
-        space.classList.add("hidden");
+        spaceBtn.classList.add("hidden");
+        dialogBox.classList.add("hidden");
+        canInteract = false;
       }
     }
 
