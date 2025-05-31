@@ -4,7 +4,7 @@ import {
   playerSprite,
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
-import { preloadImages, toggleFullScreen } from "./helpers/utils.js";
+import { preloadImages } from "./helpers/utils.js";
 import {
   boundaries,
   collisionMargin,
@@ -233,13 +233,3 @@ async function main() {
  * App launch
  */
 preloadImages().then(main);
-
-document.addEventListener(
-  "keydown",
-  (e) => {
-    if (e.key === "Enter") {
-      toggleFullScreen();
-    }
-  },
-  false
-);

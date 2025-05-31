@@ -1,4 +1,4 @@
-import { backgroudImg, playerImg } from "./sprites.js";
+import { backgroudImg, foregroundImg, playerImg } from "./sprites.js";
 
 /**
  * @param {HTMLImageElement} image
@@ -14,13 +14,28 @@ export function loadImage(image) {
  * Make sure img assets are loaded
  */
 export async function preloadImages() {
-  await Promise.all([loadImage(backgroudImg), loadImage(playerImg)]);
+  await Promise.all([
+    loadImage(backgroudImg),
+    loadImage(playerImg),
+    loadImage(foregroundImg),
+  ]);
 }
 
-export function toggleFullScreen() {
-  if (!document.fullscreenElement) {
-    document.documentElement.requestFullscreen();
-  } else if (document.exitFullscreen) {
-    document.exitFullscreen();
-  }
-}
+/**
+ * set browser to fullscreen
+ */
+document.addEventListener(
+  "keydown",
+  (e) => {
+    // TODO: change key
+    if (e.key === "Enter") {
+      // toggleFullScreen();
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else if (document.exitFullscreen) {
+        document.exitFullscreen();
+      }
+    }
+  },
+  false
+);
