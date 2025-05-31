@@ -1,4 +1,5 @@
 import { DialogBox } from "./classes.js";
+import { tileSizeInPixel } from "./collision.js";
 
 export const spaceBtn = document.getElementById("space-btn");
 export const dialogBoxElement = document.getElementById("dialog-box");
@@ -28,8 +29,8 @@ export const dialog = new DialogBox({
     y: 500,
   },
   size: {
-    width: 48,
-    height: 48,
+    width: tileSizeInPixel,
+    height: tileSizeInPixel,
   },
   text: "first dialog box",
 });
@@ -40,8 +41,8 @@ export const dialogTwo = new DialogBox({
     y: 650,
   },
   size: {
-    height: 48,
-    width: 48,
+    height: tileSizeInPixel,
+    width: tileSizeInPixel,
   },
   text: "second dialog box",
 });

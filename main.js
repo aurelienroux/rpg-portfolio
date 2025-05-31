@@ -44,6 +44,7 @@ async function main() {
     playerSprite.canMove = true;
     playerSprite.setDirection("up");
 
+    // player collision
     for (let index = 0; index < boundaries.length; index++) {
       const boundary = boundaries[index];
       if (
@@ -60,6 +61,7 @@ async function main() {
       }
     }
 
+    // dialogs interaction
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
@@ -83,6 +85,7 @@ async function main() {
     playerSprite.canMove = true;
     playerSprite.setDirection("left");
 
+    // player collision
     for (let index = 0; index < boundaries.length; index++) {
       const element = boundaries[index];
       if (
@@ -99,6 +102,7 @@ async function main() {
       }
     }
 
+    // dialogs interaction
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
@@ -122,6 +126,7 @@ async function main() {
     playerSprite.canMove = true;
     playerSprite.setDirection("down");
 
+    // player collision
     for (let index = 0; index < boundaries.length; index++) {
       const element = boundaries[index];
       if (
@@ -138,6 +143,7 @@ async function main() {
       }
     }
 
+    // dialogs interaction
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
@@ -161,6 +167,7 @@ async function main() {
     playerSprite.canMove = true;
     playerSprite.setDirection("right");
 
+    // player collision
     for (let index = 0; index < boundaries.length; index++) {
       const element = boundaries[index];
       if (
@@ -177,6 +184,7 @@ async function main() {
       }
     }
 
+    // dialogs interaction
     for (let index = 0; index < dialogs.length; index++) {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
