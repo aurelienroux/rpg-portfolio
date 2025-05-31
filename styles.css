@@ -53,7 +53,7 @@ a {
   border: var(--border);
   border-radius: 10px;
   bottom: 20%;
-  padding: 1.2em 1.2em 1.5em;
+  padding: 1em 1em 1.2em;
   box-sizing: border-box;
   height: auto;
   max-width: 700px;
@@ -85,6 +85,18 @@ a {
   color: var(--white);
   font-family: var(--font-family);
   font-size: 1.2em;
+  padding: 0.4em;
+}
+
+.close {
+  background: transparent;
+  border-radius: 5px;
+  border: var(--border);
+  color: var(--white);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: inherit;
+  margin-bottom: 1em;
   padding: 0.4em;
 }
 

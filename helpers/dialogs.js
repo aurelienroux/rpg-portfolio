@@ -3,6 +3,7 @@ import { tileSizeInPixel } from "./collision.js";
 
 export const spaceBtn = document.getElementById("space-btn");
 export const dialogBoxElement = document.getElementById("dialog-box");
+export const dialogBoxTextElement = document.getElementById("dialog-box-text");
 
 export const hiddenClass = "hidden";
 let canInteract = false;
@@ -18,8 +19,12 @@ export function setCurrentDialog(value) {
 
 window.addEventListener("keydown", (e) => {
   if (!!canInteract && e.key === " ") {
-    dialogBoxElement.innerHTML = currentDialog;
+    dialogBoxTextElement.innerHTML = currentDialog;
     dialogBoxElement.classList.toggle(hiddenClass);
+  }
+
+  if (e.key === "Escape") {
+    dialogBoxElement.classList.add(hiddenClass);
   }
 });
 
