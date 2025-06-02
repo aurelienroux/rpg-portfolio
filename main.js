@@ -81,6 +81,9 @@ async function main() {
         dialogBoxElement.classList.add(hiddenClass);
         setCanInteract(false);
         setActiveDialog(null);
+        if (dialog.choices?.length > 0) {
+          dialog.resetSelectedChoiceIndex();
+        }
       }
     }
 
@@ -129,6 +132,9 @@ async function main() {
         dialogBoxElement.classList.add(hiddenClass);
         setCanInteract(false);
         setActiveDialog(null);
+        if (dialog.choices?.length > 0) {
+          dialog.resetSelectedChoiceIndex();
+        }
       }
     }
 
@@ -177,6 +183,9 @@ async function main() {
         dialogBoxElement.classList.add(hiddenClass);
         setCanInteract(false);
         setActiveDialog(null);
+        if (dialog.choices?.length > 0) {
+          dialog.resetSelectedChoiceIndex();
+        }
       }
     }
 
@@ -225,6 +234,9 @@ async function main() {
         dialogBoxElement.classList.add(hiddenClass);
         setCanInteract(false);
         setActiveDialog(null);
+        if (dialog.choices?.length > 0) {
+          dialog.resetSelectedChoiceIndex();
+        }
       }
     }
 

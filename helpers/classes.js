@@ -223,6 +223,10 @@ export class DialogChoicesBox extends DialogBox {
     return this.choices[this.selectedChoiceIndex];
   }
 
+  resetSelectedChoiceIndex() {
+    this.selectedChoiceIndex = 0;
+  }
+
   selectPrevious() {
     if (this.choices.length > 0) {
       this.selectedChoiceIndex =
