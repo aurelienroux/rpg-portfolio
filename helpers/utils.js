@@ -27,9 +27,7 @@ export async function preloadImages() {
 document.addEventListener(
   "keydown",
   (e) => {
-    // TODO: change key
-    if (e.key === "Enter") {
-      // toggleFullScreen();
+    if (e.key === "f") {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
       } else if (document.exitFullscreen) {

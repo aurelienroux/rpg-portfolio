@@ -12,6 +12,8 @@ import { playerWidth } from "./sprites.js";
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
+export const dialogBoxChoices = document.getElementById("dialog-box-choices");
+
 export class Sprite {
   /**
    * @param {Object} options
@@ -196,7 +198,8 @@ export class DialogChoicesBox extends DialogBox {
    */
   constructor({ position, size, text, choices }) {
     super({ position, size, text });
-    this.choices = choices;
+    this.choices = choices || [];
+    this.selectedChoiceIndex = 0;
   }
 
   createChoices() {
@@ -213,5 +216,54 @@ export class DialogChoicesBox extends DialogBox {
 
       dialogBoxChoicesElement.appendChild(listElement);
     });
+  }
+
+  get selectedChoice() {
+    return this.choices[this.selectedChoiceIndex];
+  }
+
+  selectPrevious() {
+    if (this.choices.length > 0) {
+      this.selectedChoiceIndex =
+        (this.selectedChoiceIndex + 1) % this.choices.length;
+      console.log("yo", dialogBoxChoices);
+      // Remove data-selected from all choices
+      // const choiceElements = dialogBoxChoicesElement.querySelectorAll("li");
+      const choiceElements = dialogBoxChoices.querySelectorAll("li");
+      // eslint-disable-next-line no-console
+      console.log(
+        `/helpers/classes.js l.232 choiceElements => =+=+=+=+=+=+=+=+=+=+=+=+=+`,
+        choiceElements
+      );
+      choiceElements.forEach((el, i) => {
+        if (i === this.selectedChoiceIndex) {
+          el.setAttribute("data-selected", "true");
+        } else {
+          el.removeAttribute("data-selected");
+        }
+      });
+    }
+  }
+
+  selectNext() {
+    if (this.choices.length > 0) {
+      this.selectedChoiceIndex =
+        (this.selectedChoiceIndex - 1 + this.choices.length) %
+        this.choices.length;
+
+      const choiceElements = dialogBoxChoices.querySelectorAll("li");
+      // eslint-disable-next-line no-console
+      console.log(
+        `/helpers/classes.js l.232 choiceElements => =+=+=+=+=+=+=+=+=+=+=+=+=+`,
+        choiceElements
+      );
+      choiceElements.forEach((el, i) => {
+        if (i === this.selectedChoiceIndex) {
+          el.setAttribute("data-selected", "true");
+        } else {
+          el.removeAttribute("data-selected");
+        }
+      });
+    }
   }
 }

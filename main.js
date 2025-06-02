@@ -14,6 +14,7 @@ import {
   dialogBoxElement,
   dialogs,
   hiddenClass,
+  setActiveDialog,
   setCanInteract,
   spaceBtn,
 } from "./helpers/dialogs.js";
@@ -67,6 +68,7 @@ async function main() {
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
         setCanInteract(true);
+        setActiveDialog(dialog);
 
         dialog.setDialogBoxText();
         dialog.clearChoices();
@@ -78,6 +80,7 @@ async function main() {
         spaceBtn.classList.add(hiddenClass);
         dialogBoxElement.classList.add(hiddenClass);
         setCanInteract(false);
+        setActiveDialog(null);
       }
     }
 

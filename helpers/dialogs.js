@@ -3,12 +3,17 @@ import { tileSizeInPixel } from "./collision.js";
 
 export const spaceBtn = document.getElementById("space-btn");
 export const dialogBoxElement = document.getElementById("dialog-box");
-export const dialogBoxTextElement = document.getElementById("dialog-box-text");
 export const hiddenClass = "hidden";
 
 let canInteract = false;
+let activeDialog = null;
+
 export function setCanInteract(value) {
   canInteract = value;
+}
+
+export function setActiveDialog(dialog) {
+  activeDialog = dialog;
 }
 
 window.addEventListener("keydown", (e) => {
@@ -16,8 +21,24 @@ window.addEventListener("keydown", (e) => {
     dialogBoxElement.classList.toggle(hiddenClass);
   }
 
+  if (activeDialog && activeDialog.choices) {
+    if (e.key === "ArrowUp") {
+      activeDialog.selectNext();
+    } else if (e.key === "ArrowDown") {
+      activeDialog.selectPrevious();
+    } else if (e.key === "Enter") {
+      window.open(activeDialog.selectedChoice.url, "_blank");
+    }
+  }
+
+  // Example: log current choices
+  if (activeDialog && activeDialog.choices) {
+    console.log("here", activeDialog.choices[activeDialog.selectedChoiceIndex]);
+  }
+
   if (e.key === "Escape") {
     dialogBoxElement.classList.add(hiddenClass);
+    setActiveDialog(null);
   }
 });
 
@@ -58,11 +79,11 @@ const testChoices = new DialogChoicesBox({
   choices: [
     {
       displayText: "le text a display",
-      url: "https://google.com",
+      url: "https://www.stars-music.fr/",
     },
     {
       displayText: "le text a display 2",
-      url: "https://google.ca",
+      url: "https://github.com",
     },
     {
       displayText: "le text a display 3",
