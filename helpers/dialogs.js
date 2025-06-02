@@ -31,11 +31,6 @@ window.addEventListener("keydown", (e) => {
     }
   }
 
-  // Example: log current choices
-  if (activeDialog && activeDialog.choices) {
-    console.log("here", activeDialog.choices[activeDialog.selectedChoiceIndex]);
-  }
-
   if (e.key === "Escape") {
     dialogBoxElement.classList.add(hiddenClass);
     setActiveDialog(null);

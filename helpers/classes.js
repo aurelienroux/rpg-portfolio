@@ -7,6 +7,7 @@ import {
   fullAnimationCycle,
 } from "./animation.js";
 import { playerWidth } from "./sprites.js";
+import { updateSelectedChoiceUI } from "./utils.js";
 
 /** @type {HTMLCanvasElement} */
 const canvas = document.getElementById("canvas");
@@ -226,22 +227,8 @@ export class DialogChoicesBox extends DialogBox {
     if (this.choices.length > 0) {
       this.selectedChoiceIndex =
         (this.selectedChoiceIndex + 1) % this.choices.length;
-      console.log("yo", dialogBoxChoices);
-      // Remove data-selected from all choices
-      // const choiceElements = dialogBoxChoicesElement.querySelectorAll("li");
-      const choiceElements = dialogBoxChoices.querySelectorAll("li");
-      // eslint-disable-next-line no-console
-      console.log(
-        `/helpers/classes.js l.232 choiceElements => =+=+=+=+=+=+=+=+=+=+=+=+=+`,
-        choiceElements
-      );
-      choiceElements.forEach((el, i) => {
-        if (i === this.selectedChoiceIndex) {
-          el.setAttribute("data-selected", "true");
-        } else {
-          el.removeAttribute("data-selected");
-        }
-      });
+
+      updateSelectedChoiceUI(this.selectedChoiceIndex);
     }
   }
 
@@ -251,19 +238,7 @@ export class DialogChoicesBox extends DialogBox {
         (this.selectedChoiceIndex - 1 + this.choices.length) %
         this.choices.length;
 
-      const choiceElements = dialogBoxChoices.querySelectorAll("li");
-      // eslint-disable-next-line no-console
-      console.log(
-        `/helpers/classes.js l.232 choiceElements => =+=+=+=+=+=+=+=+=+=+=+=+=+`,
-        choiceElements
-      );
-      choiceElements.forEach((el, i) => {
-        if (i === this.selectedChoiceIndex) {
-          el.setAttribute("data-selected", "true");
-        } else {
-          el.removeAttribute("data-selected");
-        }
-      });
+      updateSelectedChoiceUI(this.selectedChoiceIndex);
     }
   }
 }

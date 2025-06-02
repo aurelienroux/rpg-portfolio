@@ -1,3 +1,4 @@
+import { dialogBoxChoices } from "./classes.js";
 import { backgroudImg, foregroundImg, playerImg } from "./sprites.js";
 
 /**
@@ -37,3 +38,14 @@ document.addEventListener(
   },
   false
 );
+
+export function updateSelectedChoiceUI(selectedChoiceIndex) {
+  const choiceElements = dialogBoxChoices.querySelectorAll("li");
+  choiceElements.forEach((el, i) => {
+    if (i === selectedChoiceIndex) {
+      el.setAttribute("data-selected", "true");
+    } else {
+      el.removeAttribute("data-selected");
+    }
+  });
+}
