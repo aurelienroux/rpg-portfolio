@@ -117,9 +117,13 @@ a {
 }
 
 #dialog-box-choices li[data-selected="true"]:before {
-  content: "🐻‍❄️";
+  content: url("../images/select-hand.png");
+  height: 16px;
+  left: -50px;
   position: absolute;
-  left: -35px;
+  top: -2px;
+  transform: scale(0.13);
+  width: 16px;
 }
 
 #help {
