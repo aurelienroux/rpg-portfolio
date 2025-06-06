@@ -4,7 +4,11 @@ import {
   playerSprite,
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
-import { preloadImages } from "./helpers/utils.js";
+import {
+  helpElement,
+  helpExpandedClassName,
+  preloadImages,
+} from "./helpers/utils.js";
 import {
   boundaries,
   collisionMargin,
@@ -40,9 +44,11 @@ async function main() {
   let collisionCanMove = true;
   playerSprite.canMove = false;
 
+  // TODO: add js section for minimap
   if (!!pressedKeys.w && lastKeyPressed == "w") {
     playerSprite.canMove = true;
     playerSprite.setDirection("up");
+    helpElement.classList.remove(helpExpandedClassName);
 
     // player collision
     for (let index = 0; index < boundaries.length; index++) {
@@ -95,6 +101,7 @@ async function main() {
   } else if (!!pressedKeys.a && lastKeyPressed == "a") {
     playerSprite.canMove = true;
     playerSprite.setDirection("left");
+    helpElement.classList.remove(helpExpandedClassName);
 
     // player collision
     for (let index = 0; index < boundaries.length; index++) {
@@ -146,6 +153,7 @@ async function main() {
   } else if (!!pressedKeys.s && lastKeyPressed == "s") {
     playerSprite.canMove = true;
     playerSprite.setDirection("down");
+    helpElement.classList.remove(helpExpandedClassName);
 
     // player collision
     for (let index = 0; index < boundaries.length; index++) {
@@ -197,6 +205,7 @@ async function main() {
   } else if (!!pressedKeys.d && lastKeyPressed == "d") {
     playerSprite.canMove = true;
     playerSprite.setDirection("right");
+    helpElement.classList.remove(helpExpandedClassName);
 
     // player collision
     for (let index = 0; index < boundaries.length; index++) {

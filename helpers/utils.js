@@ -22,18 +22,23 @@ export async function preloadImages() {
   ]);
 }
 
-/**
- * set browser to fullscreen
- */
+export const helpElement = document.getElementById("help");
+export const helpExpandedClassName = "help-expanded";
+
 document.addEventListener(
   "keydown",
   (e) => {
+    // set browser to fullscreen
     if (e.key === "f") {
       if (!document.fullscreenElement) {
         document.documentElement.requestFullscreen();
       } else if (document.exitFullscreen) {
         document.exitFullscreen();
       }
+    }
+
+    if (e.key == "h") {
+      helpElement.classList.toggle(helpExpandedClassName);
     }
   },
   false
