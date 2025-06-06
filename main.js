@@ -12,13 +12,13 @@ import {
 } from "./helpers/collision.js";
 import {
   dialogBoxElement,
-  dialogs,
   hiddenClass,
   setActiveDialog,
   setCanInteract,
   spaceBtn,
 } from "./helpers/dialogs.js";
 import { helpElement, helpExpandedClassName } from "./helpers/help.js";
+import { dialogs } from "./data/dialogs.js";
 
 const movables = [
   backgroundSprite,
