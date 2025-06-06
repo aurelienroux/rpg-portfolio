@@ -40,8 +40,8 @@ async function main() {
   let collisionCanMove = true;
   playerSprite.canMove = false;
 
-  // TODO: add js section for minimap
   if (!!pressedKeys.w && lastKeyPressed == "w") {
+    //#region direction up
     playerSprite.canMove = true;
     playerSprite.setDirection("up");
     helpElement.classList.remove(helpExpandedClassName);
@@ -94,7 +94,9 @@ async function main() {
         (movable) => (movable.position.y += backgroundSprite.velocity)
       );
     }
+    //#endregion
   } else if (!!pressedKeys.a && lastKeyPressed == "a") {
+    //#region direction left
     playerSprite.canMove = true;
     playerSprite.setDirection("left");
     helpElement.classList.remove(helpExpandedClassName);
@@ -146,7 +148,9 @@ async function main() {
         (movable) => (movable.position.x += backgroundSprite.velocity)
       );
     }
+    //#endregion
   } else if (!!pressedKeys.s && lastKeyPressed == "s") {
+    //#region direction down
     playerSprite.canMove = true;
     playerSprite.setDirection("down");
     helpElement.classList.remove(helpExpandedClassName);
@@ -198,7 +202,9 @@ async function main() {
         (movable) => (movable.position.y -= backgroundSprite.velocity)
       );
     }
+    //#endregion
   } else if (!!pressedKeys.d && lastKeyPressed == "d") {
+    //#region direction right
     playerSprite.canMove = true;
     playerSprite.setDirection("right");
     helpElement.classList.remove(helpExpandedClassName);
@@ -250,6 +256,7 @@ async function main() {
         (movable) => (movable.position.x -= backgroundSprite.velocity)
       );
     }
+    //#endregion
   }
 
   requestAnimationFrame(main);
