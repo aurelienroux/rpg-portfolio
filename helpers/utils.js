@@ -11,9 +11,7 @@ export function loadImage(image) {
   });
 }
 
-/**
- * Make sure img assets are loaded
- */
+// Make sure img assets are loaded
 export async function preloadImages() {
   await Promise.all([
     loadImage(backgroudImg),
@@ -22,27 +20,16 @@ export async function preloadImages() {
   ]);
 }
 
-export const helpElement = document.getElementById("help");
-export const helpExpandedClassName = "help-expanded";
-
-document.addEventListener(
-  "keydown",
-  (e) => {
-    // set browser to fullscreen
-    if (e.key === "f") {
-      if (!document.fullscreenElement) {
-        document.documentElement.requestFullscreen();
-      } else if (document.exitFullscreen) {
-        document.exitFullscreen();
-      }
+// set browser to fullscreen
+window.addEventListener("keydown", (e) => {
+  if (e.key === "f") {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else if (document.exitFullscreen) {
+      document.exitFullscreen();
     }
-
-    if (e.key == "h") {
-      helpElement.classList.toggle(helpExpandedClassName);
-    }
-  },
-  false
-);
+  }
+});
 
 export function updateSelectedChoiceUI(selectedChoiceIndex) {
   const choiceElements = dialogBoxChoices.querySelectorAll("li");

@@ -4,11 +4,7 @@ import {
   playerSprite,
 } from "./helpers/sprites.js";
 import { lastKeyPressed, pressedKeys } from "./helpers/movements.js";
-import {
-  helpElement,
-  helpExpandedClassName,
-  preloadImages,
-} from "./helpers/utils.js";
+import { preloadImages } from "./helpers/utils.js";
 import {
   boundaries,
   collisionMargin,
@@ -22,6 +18,7 @@ import {
   setCanInteract,
   spaceBtn,
 } from "./helpers/dialogs.js";
+import { helpElement, helpExpandedClassName } from "./helpers/help.js";
 
 const movables = [
   backgroundSprite,
