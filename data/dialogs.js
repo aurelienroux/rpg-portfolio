@@ -6,12 +6,6 @@ const dialog = new DialogBox({
     x: 500,
     y: 500,
   },
-  // crop: {
-  //   sx: 384,
-  //   sy: 528,
-  //   sWidth: 48,
-  //   sHeight: 48,
-  // },
   size: {
     width: tileSizeInPixel,
     height: tileSizeInPixel,

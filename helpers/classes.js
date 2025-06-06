@@ -152,39 +152,29 @@ export class DialogBox {
    * @param {Object} options.position
    * @param {number} options.position.x
    * @param {number} options.position.y
-   * @param {Object} options.crop
-   * @param {number} options.crop.sx
-   * @param {number} options.crop.sy
-   * @param {number} options.crop.sWidth
-   * @param {number} options.crop.sHeight
    * @param {Object} options.size
    * @param {number} options.size.width
    * @param {number} options.size.height
    * @param {string} options.text
    * @param {Array<choice>} options.choices
    */
-  constructor({ image, position, crop, size, text, animationCounter = 0 }) {
+
+  // ui spritesheet down arrow animation coordinates
+  #crop = {
+    sx: 384,
+    sy: 528,
+    sWidth: 48,
+    sHeight: 48,
+  };
+
+  constructor({ image, position, size, text, animationCounter = 0 }) {
     this.image = image;
     this.position = position;
     this.size = size;
-    // this.crop = crop;
-    // this.crop = {
-    //   sx: 384,
-    //   sy: 528,
-    // };
-    this.crop = {
-      sx: 384,
-      sy: 528,
-      sWidth: 48,
-      sHeight: 48,
-    };
     this.text = text;
     this.animationCounter = animationCounter;
-    this.baseCrop = { sx: this.crop.sx, sy: this.crop.sy };
+    this.baseCrop = { sx: this.#crop.sx, sy: this.#crop.sy };
   }
-
-  // add a private property and use in the basecrop
-  static test = {};
 
   setDialogBoxText() {
     const dialogBoxTextElement = document.getElementById("dialog-box-text");
@@ -199,25 +189,12 @@ export class DialogBox {
   }
 
   draw() {
-    // ctx.fillStyle = "rgba(255, 255, 0, 0.5)";
-    // ctx.fillRect(
-    //   this.position.x,
-    //   this.position.y,
-    //   this.size.width,
-    //   this.size.height
-    // );
-
     ctx.drawImage(
-      // this.image,
       uiImage,
-      this.crop.sx, // sprite top x left corner
-      this.crop.sy, // sprite top y left corner
-      this.crop.sWidth, // sprite width
-      this.crop.sHeight, // sprite height
-      // 384,
-      // 528,
-      // 48,
-      // 48,
+      this.#crop.sx, // sprite top x left corner
+      this.#crop.sy, // sprite top y left corner
+      this.#crop.sWidth, // sprite width
+      this.#crop.sHeight, // sprite height
       this.position.x,
       this.position.y,
       this.size.width,
@@ -227,10 +204,10 @@ export class DialogBox {
     this.animationCounter++;
 
     if (this.animationCounter % animationThreshold === 0) {
-      if (this.crop.sx < this.baseCrop.sx + fullAnimationCycle) {
-        this.crop.sx += playerWidth;
+      if (this.#crop.sx < this.baseCrop.sx + fullAnimationCycle) {
+        this.#crop.sx += playerWidth;
       } else {
-        this.crop.sx = this.baseCrop.sx; // Reset to the first frame of the current direction
+        this.#crop.sx = this.baseCrop.sx; // Reset to the first frame of the current direction
       }
     }
   }

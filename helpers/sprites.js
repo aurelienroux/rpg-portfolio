@@ -13,6 +13,7 @@ export const backgroudImg = new Image();
 export const foregroundImg = new Image();
 export const playerImg = new Image();
 export const uiImage = new Image();
+
 backgroudImg.src = "./images/background.png";
 foregroundImg.src = "./images/foreground.png";
 playerImg.src = "./images/player.png";
