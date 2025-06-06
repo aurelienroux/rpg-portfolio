@@ -32,10 +32,9 @@ const movables = [
  */
 async function main() {
   backgroundSprite.draw();
+  dialogs.forEach((dialog) => dialog.draw());
   playerSprite.draw();
   foregroundSprite.draw();
-
-  dialogs.forEach((dialog) => dialog.draw());
 
   boundaries.forEach((boundary) => boundary.draw());
   let collisionCanMove = true;

@@ -1,5 +1,5 @@
 import { dialogBoxChoices } from "./classes.js";
-import { backgroudImg, foregroundImg, playerImg } from "./sprites.js";
+import { backgroudImg, foregroundImg, playerImg, uiImage } from "./sprites.js";
 
 /**
  * @param {HTMLImageElement} image
@@ -17,6 +17,7 @@ export async function preloadImages() {
     loadImage(backgroudImg),
     loadImage(playerImg),
     loadImage(foregroundImg),
+    loadImage(uiImage),
   ]);
 }
 
