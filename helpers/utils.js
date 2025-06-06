@@ -22,7 +22,7 @@ export async function preloadImages() {
 
 // set browser to fullscreen
 window.addEventListener("keydown", (e) => {
-  if (e.key === "f") {
+  if (e.key === "f" || e.key === "F") {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
     } else if (document.exitFullscreen) {

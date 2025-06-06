@@ -3,7 +3,7 @@ export const helpExpandedClassName = "help-expanded";
 
 // open help menu
 window.addEventListener("keydown", (e) => {
-  if (e.key == "h") {
+  if (e.key === "h" || e.key === "H") {
     helpElement.classList.toggle(helpExpandedClassName);
   }
 });

@@ -6,16 +6,16 @@ export let pressedKeys = { w: false, a: false, s: false, d: false };
 export let lastKeyPressed = "";
 
 window.addEventListener("keydown", (e) => {
-  if (e.key === "w") {
+  if (e.key === "w" || e.key === "W") {
     pressedKeys.w = true;
     lastKeyPressed = "w";
-  } else if (e.key === "a") {
+  } else if (e.key === "a" || e.key === "A") {
     pressedKeys.a = true;
     lastKeyPressed = "a";
-  } else if (e.key === "s") {
+  } else if (e.key === "s" || e.key === "S") {
     pressedKeys.s = true;
     lastKeyPressed = "s";
-  } else if (e.key === "d") {
+  } else if (e.key === "d" || e.key === "D") {
     pressedKeys.d = true;
     lastKeyPressed = "d";
   }
