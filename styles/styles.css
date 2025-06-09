@@ -125,26 +125,3 @@ a {
   transform: scale(0.13);
   width: 16px;
 }
-
-#help {
-  background: var(--blue-gradient);
-  border-radius: 10px;
-  border: var(--border);
-  margin-left: 3%;
-  padding: 1em;
-  position: absolute;
-  right: 3%;
-  top: 3%;
-}
-
-.list {
-  display: none;
-}
-
-.help-expanded .list {
-  display: inherit;
-}
-
-.help-expanded .trigger {
-  display: none;
-}

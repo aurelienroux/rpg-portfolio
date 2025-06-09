@@ -1,0 +1,22 @@
+#help {
+  background: var(--blue-gradient);
+  border-radius: 10px;
+  border: var(--border);
+  margin-left: 3%;
+  padding: 1em;
+  position: absolute;
+  right: 3%;
+  top: 3%;
+}
+
+.help__list {
+  display: none;
+}
+
+.help--expanded .help__list {
+  display: inherit;
+}
+
+.help--expanded .help__trigger {
+  display: none;
+}
