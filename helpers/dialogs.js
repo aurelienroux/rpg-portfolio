@@ -1,4 +1,4 @@
-export const spaceBtn = document.getElementById("space-btn");
+export const spaceBtn = document.getElementById("commands__space-btn");
 export const dialogBoxElement = document.getElementById("dialog-box");
 export const hiddenClass = "hidden";
 

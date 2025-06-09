@@ -57,11 +57,11 @@ a {
   align-items: center;
 }
 
-.commands-left {
+.commands--left {
   left: 3%;
 }
 
-.commands-right {
+.commands--right {
   right: 3%;
 }
 
