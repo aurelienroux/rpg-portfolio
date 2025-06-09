@@ -13,8 +13,8 @@ import {
 import {
   dialogBoxElement,
   hiddenClass,
-  setActiveDialog,
-  setCanInteract,
+  preloadDialog,
+  setCanOpenDialog,
   spaceBtn,
 } from "./helpers/dialogs.js";
 import { helpElement, helpExpandedClassName } from "./helpers/help.js";
@@ -40,7 +40,7 @@ async function main() {
   let collisionCanMove = true;
   playerSprite.canMove = false;
 
-  if (!!pressedKeys.w && lastKeyPressed == "w") {
+  if (!!pressedKeys.up && lastKeyPressed == "up") {
     //#region direction up
     playerSprite.canMove = true;
     playerSprite.setDirection("up");
@@ -69,8 +69,8 @@ async function main() {
 
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
-        setCanInteract(true);
-        setActiveDialog(dialog);
+        setCanOpenDialog(true);
+        preloadDialog(dialog);
 
         dialog.setDialogBoxText();
         dialog.clearChoices();
@@ -81,8 +81,8 @@ async function main() {
       } else {
         spaceBtn.classList.add(hiddenClass);
         dialogBoxElement.classList.add(hiddenClass);
-        setCanInteract(false);
-        setActiveDialog(null);
+        setCanOpenDialog(false);
+        preloadDialog(null);
         if (dialog.choices?.length > 0) {
           dialog.resetSelectedChoiceIndex();
         }
@@ -95,7 +95,7 @@ async function main() {
       );
     }
     //#endregion
-  } else if (!!pressedKeys.a && lastKeyPressed == "a") {
+  } else if (!!pressedKeys.left && lastKeyPressed == "left") {
     //#region direction left
     playerSprite.canMove = true;
     playerSprite.setDirection("left");
@@ -123,8 +123,8 @@ async function main() {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
-        setCanInteract(true);
-        setActiveDialog(dialog);
+        setCanOpenDialog(true);
+        preloadDialog(dialog);
 
         dialog.setDialogBoxText();
         dialog.clearChoices();
@@ -135,8 +135,8 @@ async function main() {
       } else {
         spaceBtn.classList.add(hiddenClass);
         dialogBoxElement.classList.add(hiddenClass);
-        setCanInteract(false);
-        setActiveDialog(null);
+        setCanOpenDialog(false);
+        preloadDialog(null);
         if (dialog.choices?.length > 0) {
           dialog.resetSelectedChoiceIndex();
         }
@@ -149,7 +149,7 @@ async function main() {
       );
     }
     //#endregion
-  } else if (!!pressedKeys.s && lastKeyPressed == "s") {
+  } else if (!!pressedKeys.down && lastKeyPressed == "down") {
     //#region direction down
     playerSprite.canMove = true;
     playerSprite.setDirection("down");
@@ -177,8 +177,8 @@ async function main() {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
-        setCanInteract(true);
-        setActiveDialog(dialog);
+        setCanOpenDialog(true);
+        preloadDialog(dialog);
 
         dialog.setDialogBoxText();
         dialog.clearChoices();
@@ -189,8 +189,8 @@ async function main() {
       } else {
         spaceBtn.classList.add(hiddenClass);
         dialogBoxElement.classList.add(hiddenClass);
-        setCanInteract(false);
-        setActiveDialog(null);
+        setCanOpenDialog(false);
+        preloadDialog(null);
         if (dialog.choices?.length > 0) {
           dialog.resetSelectedChoiceIndex();
         }
@@ -203,7 +203,7 @@ async function main() {
       );
     }
     //#endregion
-  } else if (!!pressedKeys.d && lastKeyPressed == "d") {
+  } else if (!!pressedKeys.right && lastKeyPressed == "right") {
     //#region direction right
     playerSprite.canMove = true;
     playerSprite.setDirection("right");
@@ -231,8 +231,8 @@ async function main() {
       const dialog = dialogs[index];
       if (isColliding(playerSprite, dialog)) {
         spaceBtn.classList.remove(hiddenClass);
-        setCanInteract(true);
-        setActiveDialog(dialog);
+        setCanOpenDialog(true);
+        preloadDialog(dialog);
 
         dialog.setDialogBoxText();
         dialog.clearChoices();
@@ -243,8 +243,8 @@ async function main() {
       } else {
         spaceBtn.classList.add(hiddenClass);
         dialogBoxElement.classList.add(hiddenClass);
-        setCanInteract(false);
-        setActiveDialog(null);
+        setCanOpenDialog(false);
+        preloadDialog(null);
         if (dialog.choices?.length > 0) {
           dialog.resetSelectedChoiceIndex();
         }

@@ -2,33 +2,40 @@ export const spaceBtn = document.getElementById("space-btn");
 export const dialogBoxElement = document.getElementById("dialog-box");
 export const hiddenClass = "hidden";
 
-let canInteract = false;
-export function setCanInteract(value) {
-  canInteract = value;
+// when player collides with a collision box
+let canOpenDialog = false;
+export function setCanOpenDialog(value) {
+  canOpenDialog = value;
 }
 
-let activeDialog = null;
-export function setActiveDialog(dialog) {
-  activeDialog = dialog;
+// preload UI dialog before displaying it
+let preloadedDialog = null;
+export function preloadDialog(dialog) {
+  preloadedDialog = dialog;
 }
+
+// dispatchs arrows keypress to player or dialog box depending on mode
+export let activeDialogMode = false;
 
 window.addEventListener("keydown", (e) => {
-  if (!!canInteract && e.key === " ") {
+  if (!!canOpenDialog && e.key === " ") {
     dialogBoxElement.classList.toggle(hiddenClass);
+    activeDialogMode = !activeDialogMode;
   }
 
-  if (activeDialog && activeDialog.choices) {
+  if (!!activeDialogMode && preloadedDialog && preloadedDialog.choices) {
     if (e.key === "ArrowUp") {
-      activeDialog.selectNext();
+      preloadedDialog.selectNext();
     } else if (e.key === "ArrowDown") {
-      activeDialog.selectPrevious();
+      preloadedDialog.selectPrevious();
     } else if (e.key === "Enter") {
-      window.open(activeDialog.selectedChoice.url, "_blank");
+      window.open(preloadedDialog.selectedChoice.url, "_blank");
     }
   }
 
   if (e.key === "Escape") {
     dialogBoxElement.classList.add(hiddenClass);
-    setActiveDialog(null);
+    preloadDialog(null);
+    activeDialogMode = false;
   }
 });

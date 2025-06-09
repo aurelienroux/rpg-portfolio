@@ -1,29 +1,33 @@
+import { activeDialogMode } from "./dialogs.js";
+
 /**
- * @typedef {{w: boolean, a: boolean, s: boolean, d: boolean}} PressedKeys
+ * @typedef {{up: boolean, left: boolean, down: boolean, right: boolean}} PressedKeys
  */
-export let pressedKeys = { w: false, a: false, s: false, d: false };
+export let pressedKeys = { up: false, left: false, down: false, right: false };
 
 export let lastKeyPressed = "";
 
 window.addEventListener("keydown", (e) => {
-  if (e.key === "w" || e.key === "W") {
-    pressedKeys.w = true;
-    lastKeyPressed = "w";
-  } else if (e.key === "a" || e.key === "A") {
-    pressedKeys.a = true;
-    lastKeyPressed = "a";
-  } else if (e.key === "s" || e.key === "S") {
-    pressedKeys.s = true;
-    lastKeyPressed = "s";
-  } else if (e.key === "d" || e.key === "D") {
-    pressedKeys.d = true;
-    lastKeyPressed = "d";
+  if (!activeDialogMode) {
+    if (e.key === "ArrowUp") {
+      pressedKeys.up = true;
+      lastKeyPressed = "up";
+    } else if (e.key === "ArrowLeft") {
+      pressedKeys.left = true;
+      lastKeyPressed = "left";
+    } else if (e.key === "ArrowDown") {
+      pressedKeys.down = true;
+      lastKeyPressed = "down";
+    } else if (e.key === "ArrowRight") {
+      pressedKeys.right = true;
+      lastKeyPressed = "right";
+    }
   }
 });
 
 window.addEventListener("keyup", (e) => {
-  pressedKeys.w = false;
-  pressedKeys.a = false;
-  pressedKeys.s = false;
-  pressedKeys.d = false;
+  pressedKeys.up = false;
+  pressedKeys.left = false;
+  pressedKeys.down = false;
+  pressedKeys.right = false;
 });
