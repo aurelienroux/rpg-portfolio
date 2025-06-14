@@ -18,7 +18,6 @@
   color: var(--white);
   cursor: pointer;
   font-family: var(--font-family);
-  font-size: inherit;
   margin-bottom: 0.5em;
   padding: 0.4em;
 }
