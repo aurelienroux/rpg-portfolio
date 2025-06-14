@@ -8,7 +8,14 @@
     #03166d 100%
   );
   --border: 2px solid var(--white);
-  --font-family: "VT323", monospace;
+  --font-family: "Press Start 2P", monospace;
+}
+
+@font-face {
+  font-family: "Press Start 2P";
+  src: url("../fonts/PressStart2P-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 html {
@@ -17,7 +24,7 @@ html {
   overflow: hidden;
   color: var(--white);
   font-family: var(--font-family);
-  font-size: 24px;
+  font-size: 16px;
 }
 
 body {
@@ -61,7 +68,7 @@ button {
   border: var(--border);
   color: var(--white);
   font-family: var(--font-family);
-  padding: 0.4rem;
+  padding: 1rem;
 }
 
 .cv {
