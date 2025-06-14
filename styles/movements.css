@@ -1,0 +1,24 @@
+.movements {
+  position: absolute;
+  bottom: 15px;
+  display: flex;
+  left: 15px;
+  align-items: center;
+}
+
+.movements--middle {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.movements button {
+  background: var(--blue-gradient);
+  margin: 7px;
+  border-radius: 5px;
+  border: var(--border);
+  color: var(--white);
+  font-family: var(--font-family);
+  font-size: 1.2em;
+  padding: 0.4em;
+}

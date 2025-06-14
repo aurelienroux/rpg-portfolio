@@ -5,17 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aurelien Roux | Developer</title>
     <link rel="stylesheet" href="./styles/help.css" />
+    <link rel="stylesheet" href="./styles/movements.css" />
+    <link rel="stylesheet" href="./styles/interaction.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- <link
+    <link
       href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
       rel="stylesheet"
-    /> -->
+    />
   </head>
   <body>
+    <button class="cv">
+      <span class="underline">O</span>pen CV
+    </button>
+
     <div id="help">
-      <span class="help__trigger">Press H for help</span>
+     <span class="help__trigger">
+        <span class="underline">H</span>elp
+      </span>
+      </button>
       <ul class="help__list">
         <li>navigate with arrows keys</li>
         <li>open dialogs with SPACE</li>
@@ -24,25 +33,29 @@
         <li>interactions boxes are in displayed with 📍</li>
       </ul>
     </div>
-    <div class="commands commands--left">
-      <div>
-        <button>⬆️</button>
+
+    <div class="movements">
+      <div class="movements--left">
+        <button>&#8592;</button>
       </div>
-      <div>
-        <button>⬅️</button>
-        <button>⬇️</button>
-        <button>➡️</button>
+      <div class="movements--middle">
+        <button>️&#8593;</button>
+        <button>&#8595;</button>
+      </div>
+      <div class="movements--right">
+        <button>&#8594;</button>
       </div>
     </div>
-    <div class="commands commands--right">
-      <button id="commands__space-btn" class="hidden">SPACE to interact</button>
+
+    <div class="interaction">
+      <button id="interaction--btn" class="hidden"><span class="underline">SPACE</span> to open</button>
     </div>
+
     <div id="dialog-box" class="hidden">
       <button class="dialog-box-close">ESC</button>
       <div id="dialog-box-text"></div>
       <ul id="dialog-box-choices">
-        <!-- <li data-selected="true">one</li> -->
-        <!-- <li>two</li> -->
+        <!-- <li data-selected="true">example</li> -->
       </ul>
     </div>
     <canvas id="canvas" width="1400" height="900"> fallback </canvas>

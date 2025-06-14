@@ -1,12 +1,13 @@
 #help {
   background: var(--blue-gradient);
-  border-radius: 10px;
+  border-radius: 5px;
   border: var(--border);
+  font-size: 1.2em;
   margin-left: 3%;
-  padding: 1em;
+  padding: 0.4em;
   position: absolute;
-  right: 3%;
-  top: 3%;
+  right: 15px;
+  top: 15px;
 }
 
 .help__list {
