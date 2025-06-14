@@ -55,25 +55,38 @@ button {
   display: none;
 }
 
-.cv {
-  align-items: center;
+.ui-box {
   background: var(--blue-gradient);
   border-radius: 5px;
   border: var(--border);
   color: var(--white);
   font-family: var(--font-family);
+  padding: 0.4rem;
+}
+
+.cv {
+  align-items: center;
   left: 15px;
-  padding: 0.4em;
   position: absolute;
   top: 15px;
 }
 
+.interaction {
+  align-items: center;
+  bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  position: absolute;
+  right: 15px;
+}
+
 @media (min-width: 600px) {
   body {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 
   button {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
   }
 }

@@ -6,7 +6,6 @@
     <title>Aurelien Roux | Developer</title>
     <link rel="stylesheet" href="./styles/help.css" />
     <link rel="stylesheet" href="./styles/movements.css" />
-    <link rel="stylesheet" href="./styles/interaction.css" />
     <link rel="stylesheet" href="./styles/dialog.css" />
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -17,10 +16,12 @@
     />
   </head>
   <body>
-    <button class="cv"><span class="underline">O</span>pen CV</button>
+    <button class="ui-box cv"><span class="underline">O</span>pen CV</button>
 
     <div id="help">
-      <button class="help__trigger"><span class="underline">H</span>elp</button>
+      <button class="help__trigger ui-box">
+        <span class="underline">H</span>elp
+      </button>
       <ul class="help__list">
         <li>navigate with arrows keys</li>
         <li>open dialogs with SPACE</li>
@@ -32,24 +33,24 @@
 
     <div class="movements">
       <div class="movements--left">
-        <button>&#8592;</button>
+        <button class="ui-box">&#8592;</button>
       </div>
       <div class="movements--middle">
-        <button>️&#8593;</button>
-        <button>&#8595;</button>
+        <button class="ui-box">&#8593;</button>
+        <button class="ui-box">&#8595;</button>
       </div>
       <div class="movements--right">
-        <button>&#8594;</button>
+        <button class="ui-box">&#8594;</button>
       </div>
     </div>
 
     <div class="interaction">
-      <button id="interaction--btn" class="hidden">
+      <button id="interaction--btn" class="ui-box hidden">
         <span class="underline">SPACE</span> to open
       </button>
     </div>
 
-    <div id="dialog-box" class="hidden">
+    <div id="dialog-box" class="ui-box hidden">
       <button class="dialog-box--close">ESC</button>
       <div id="dialog-box--text"></div>
       <ul id="dialog-box--choices">

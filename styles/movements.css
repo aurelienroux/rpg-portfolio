@@ -1,9 +1,9 @@
 .movements {
-  position: absolute;
+  align-items: center;
   bottom: 15px;
   display: flex;
   left: 15px;
-  align-items: center;
+  position: absolute;
 }
 
 .movements--middle {
@@ -13,11 +13,5 @@
 }
 
 .movements button {
-  background: var(--blue-gradient);
   margin: 7px;
-  border-radius: 5px;
-  border: var(--border);
-  color: var(--white);
-  font-family: var(--font-family);
-  padding: 0.4em;
 }
