@@ -1,17 +1,17 @@
 .movements {
   align-items: center;
-  bottom: 15px;
+  bottom: 0.7rem;
   display: flex;
-  left: 15px;
+  left: 0.7rem;
   position: absolute;
 }
 
 .movements--middle {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 0.8rem;
 }
 
 .movements button {
-  margin: 7px;
+  margin: 0.33rem;
 }

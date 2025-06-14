@@ -1,17 +1,17 @@
 #help {
   position: absolute;
-  right: 15px;
-  top: 15px;
+  right: 0.7rem;
+  top: 0.7rem;
 }
 
 .help__list {
   background: var(--blue-gradient);
-  border-radius: 5px;
+  border-radius: 0.25rem;
   border: var(--border);
   display: none;
   list-style-type: none;
   margin: 0;
-  padding: 0.4em;
+  padding: 0.4rem;
 }
 
 .help--expanded .help__list {

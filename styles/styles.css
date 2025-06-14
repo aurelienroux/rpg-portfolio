@@ -57,7 +57,7 @@ button {
 
 .ui-box {
   background: var(--blue-gradient);
-  border-radius: 5px;
+  border-radius: 0.25rem;
   border: var(--border);
   color: var(--white);
   font-family: var(--font-family);
@@ -66,19 +66,19 @@ button {
 
 .cv {
   align-items: center;
-  left: 15px;
+  left: 0.7rem;
   position: absolute;
-  top: 15px;
+  top: 0.7rem;
 }
 
 .interaction {
   align-items: center;
-  bottom: 15px;
+  bottom: 0.7rem;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: 0.5rem;
   position: absolute;
-  right: 15px;
+  right: 0.7rem;
 }
 
 @media (min-width: 600px) {
