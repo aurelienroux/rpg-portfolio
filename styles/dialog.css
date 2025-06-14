@@ -1,0 +1,46 @@
+#dialog-box {
+  background: var(--blue-gradient);
+  border: var(--border);
+  border-radius: 10px;
+  bottom: 24%;
+  padding: 1em 1em 1.2em;
+  box-sizing: border-box;
+  height: auto;
+  max-width: 700px;
+  position: absolute;
+  width: 80%;
+}
+
+.dialog-box-close {
+  background: transparent;
+  border-radius: 5px;
+  border: var(--border);
+  color: var(--white);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: inherit;
+  margin-bottom: 0.5em;
+  padding: 0.4em;
+}
+
+#dialog-box-choices {
+  list-style-type: none;
+}
+
+#dialog-box-choices li {
+  margin-bottom: 8px;
+}
+
+#dialog-box-choices li[data-selected="true"] {
+  position: relative;
+}
+
+#dialog-box-choices li[data-selected="true"]:before {
+  content: url("../images/select-hand.png");
+  height: 16px;
+  left: -50px;
+  position: absolute;
+  top: -2px;
+  transform: scale(0.13);
+  width: 16px;
+}
