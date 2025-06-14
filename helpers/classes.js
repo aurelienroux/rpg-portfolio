@@ -13,7 +13,7 @@ import { updateSelectedChoiceUI } from "./utils.js";
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
-export const dialogBoxChoices = document.getElementById("dialog-box-choices");
+export const dialogBoxChoices = document.getElementById("dialog-box--choices");
 
 export class Sprite {
   /**
@@ -177,15 +177,12 @@ export class DialogBox {
   }
 
   setDialogBoxText() {
-    const dialogBoxTextElement = document.getElementById("dialog-box-text");
+    const dialogBoxTextElement = document.getElementById("dialog-box--text");
     dialogBoxTextElement.innerHTML = this.text;
   }
 
   clearChoices() {
-    const dialogBoxChoicesElement =
-      document.getElementById("dialog-box-choices");
-
-    dialogBoxChoicesElement.innerHTML = "";
+    dialogBoxChoices.innerHTML = "";
   }
 
   draw() {
@@ -231,9 +228,6 @@ export class DialogChoicesBox extends DialogBox {
   }
 
   createChoices() {
-    const dialogBoxChoicesElement =
-      document.getElementById("dialog-box-choices");
-
     this.choices.forEach((choice, index) => {
       const listElement = document.createElement("li");
 
@@ -242,7 +236,7 @@ export class DialogChoicesBox extends DialogBox {
         listElement.dataset.selected = true;
       }
 
-      dialogBoxChoicesElement.appendChild(listElement);
+      dialogBoxChoices.appendChild(listElement);
     });
   }
 
