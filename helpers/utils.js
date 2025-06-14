@@ -30,6 +30,10 @@ window.addEventListener("keydown", (e) => {
       document.exitFullscreen();
     }
   }
+
+  if (e.key === "o" || e.key === "O") {
+    window.open("./images/cv.pdf", "_blank");
+  }
 });
 
 export function updateSelectedChoiceUI(selectedChoiceIndex) {
