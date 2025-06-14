@@ -1,17 +1,18 @@
 #help {
-  background: var(--blue-gradient);
-  border-radius: 5px;
-  border: var(--border);
   font-size: 1.2em;
-  margin-left: 3%;
-  padding: 0.4em;
   position: absolute;
   right: 15px;
   top: 15px;
 }
 
 .help__list {
+  background: var(--blue-gradient);
+  border-radius: 5px;
+  border: var(--border);
   display: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0.4em;
 }
 
 .help--expanded .help__list {
@@ -20,4 +21,14 @@
 
 .help--expanded .help__trigger {
   display: none;
+}
+
+.help__trigger {
+  background: var(--blue-gradient);
+  border-radius: 5px;
+  border: var(--border);
+  color: var(--white);
+  font-family: var(--font-family);
+  font-size: 1.2em;
+  padding: 0.4em;
 }
