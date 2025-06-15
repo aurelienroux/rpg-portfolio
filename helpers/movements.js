@@ -16,8 +16,16 @@ arrowUpInput.addEventListener("mousedown", () => {
   pressedKeys.up = true;
   lastKeyPressed = "up";
 });
+arrowUpInput.addEventListener("touchstart", () => {
+  pressedKeys.up = true;
+  lastKeyPressed = "up";
+});
 
 arrowDownInput.addEventListener("mousedown", () => {
+  pressedKeys.down = true;
+  lastKeyPressed = "down";
+});
+arrowDownInput.addEventListener("touchstart", () => {
   pressedKeys.down = true;
   lastKeyPressed = "down";
 });
@@ -26,8 +34,16 @@ arrowLeftInput.addEventListener("mousedown", () => {
   pressedKeys.left = true;
   lastKeyPressed = "left";
 });
+arrowLeftInput.addEventListener("touchstart", () => {
+  pressedKeys.left = true;
+  lastKeyPressed = "left";
+});
 
 arrowRightInput.addEventListener("mousedown", () => {
+  pressedKeys.right = true;
+  lastKeyPressed = "right";
+});
+arrowRightInput.addEventListener("touchstart", () => {
   pressedKeys.right = true;
   lastKeyPressed = "right";
 });
@@ -40,6 +56,14 @@ const mobileInputs = [
 ];
 mobileInputs.forEach((input) => {
   input.addEventListener("mouseup", () => {
+    pressedKeys.up = false;
+    pressedKeys.left = false;
+    pressedKeys.down = false;
+    pressedKeys.right = false;
+  });
+});
+mobileInputs.forEach((input) => {
+  input.addEventListener("touchend", () => {
     pressedKeys.up = false;
     pressedKeys.left = false;
     pressedKeys.down = false;
