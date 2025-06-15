@@ -9,9 +9,9 @@
 .movements--middle {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 3rem;
 }
 
 .movements button {
-  margin: 0.33rem;
+  margin: 0.3rem;
 }
