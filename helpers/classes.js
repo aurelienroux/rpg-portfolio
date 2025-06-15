@@ -230,12 +230,17 @@ export class DialogChoicesBox extends DialogBox {
   createChoices() {
     this.choices.forEach((choice, index) => {
       const listElement = document.createElement("li");
+      const linkElement = document.createElement("a");
 
-      listElement.innerHTML = choice.displayText;
+      linkElement.textContent = choice.displayText;
+      linkElement.href = choice.url;
+      linkElement.target = "_blank";
+
       if (index === 0) {
         listElement.dataset.selected = true;
       }
 
+      listElement.appendChild(linkElement);
       dialogBoxChoices.appendChild(listElement);
     });
   }

@@ -34,7 +34,7 @@
 #dialog-box--choices li[data-selected="true"]:before {
   content: url("../images/select-hand.png");
   height: 0.7rem;
-  left: -2rem;
+  left: -3rem;
   position: absolute;
   transform: scale(0.13);
   width: 0.7rem;
