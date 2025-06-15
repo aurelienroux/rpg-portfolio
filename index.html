@@ -12,13 +12,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
   <body>
-    <button class="ui-box cv"><span class="underline">O</span>pen CV</button>
+    <button id="input-cv" class="ui-box cv">
+      <span class="underline">O</span>pen CV
+    </button>
 
     <div id="help">
-      <button class="help__trigger ui-box">
+      <button id="input-help" class="help__trigger ui-box">
         <span class="underline">H</span>elp
       </button>
-      <ul class="help__list">
+      <ul id="input-help-list" class="help__list">
         <li>navigate with arrows keys</li>
         <li>open dialogs with SPACE</li>
         <li>confirm with ENTER</li>
@@ -29,14 +31,14 @@
 
     <div class="movements">
       <div class="movements--left">
-        <button class="ui-box">&#8592;</button>
+        <button id="input-arrow-left" class="ui-box">&#8592;</button>
       </div>
       <div class="movements--middle">
-        <button class="ui-box">&#8593;</button>
-        <button class="ui-box">&#8595;</button>
+        <button id="input-arrow-up" class="ui-box">&#8593;</button>
+        <button id="input-arrow-down" class="ui-box">&#8595;</button>
       </div>
       <div class="movements--right">
-        <button class="ui-box">&#8594;</button>
+        <button id="input-arrow-right" class="ui-box">&#8594;</button>
       </div>
     </div>
 

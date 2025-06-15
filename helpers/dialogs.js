@@ -39,3 +39,8 @@ window.addEventListener("keydown", (e) => {
     activeDialogMode = false;
   }
 });
+
+spaceBtn.addEventListener("click", () => {
+  dialogBoxElement.classList.toggle(hiddenClass);
+  activeDialogMode = !activeDialogMode;
+});

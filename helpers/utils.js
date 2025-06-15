@@ -46,3 +46,9 @@ export function updateSelectedChoiceUI(selectedChoiceIndex) {
     }
   });
 }
+
+// mobile: open cv
+const cvInput = document.getElementById("input-cv");
+cvInput.addEventListener("click", () => {
+  window.open("./images/cv.pdf", "_blank");
+});
