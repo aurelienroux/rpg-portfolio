@@ -1,16 +1,22 @@
 #dialog-box {
-  bottom: 24%;
-  padding: 1rem 1rem 1.2rem;
   box-sizing: border-box;
   height: auto;
-  max-width: 29rem;
+  margin: 55px;
+  max-height: 60%;
+  max-width: 50rem;
+  overflow: scroll;
+  padding: 1rem 1rem 1.2rem;
   position: absolute;
   width: 80%;
 }
 
+#dialog-box img {
+  height: 16px;
+}
+
 .dialog-box--close {
   background: transparent;
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   border: var(--border);
   color: var(--white);
   cursor: pointer;
@@ -34,7 +40,7 @@
 #dialog-box--choices li[data-selected="true"]:before {
   content: url("../images/select-hand.png");
   height: 0.7rem;
-  left: -3rem;
+  left: -3.5rem;
   position: absolute;
   transform: scale(0.13);
   width: 0.7rem;

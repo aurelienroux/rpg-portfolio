@@ -6,7 +6,7 @@
 
 .help__list {
   background: var(--blue-gradient);
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   border: var(--border);
   display: none;
   list-style-type: none;

@@ -24,7 +24,7 @@ html {
   overflow: hidden;
   color: var(--white);
   font-family: var(--font-family);
-  font-size: 14px;
+  font-size: 13px;
 }
 
 body {
@@ -66,7 +66,7 @@ button {
 
 .ui-box {
   background: var(--blue-gradient);
-  border-radius: 0.25rem;
+  border-radius: 0.5rem;
   border: var(--border);
   color: var(--white);
   font-family: var(--font-family);
@@ -88,10 +88,4 @@ button {
   gap: 0.5rem;
   position: absolute;
   right: 0.7rem;
-}
-
-@media (min-width: 600px) {
-  button {
-    font-size: 1.2rem;
-  }
 }

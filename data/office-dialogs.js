@@ -11,27 +11,27 @@ const intro = new DialogBox({
     height: tileSizeInPixel,
   },
   text: `
-  <p>
-    Hello! Welcome to my portfolio. My name is Aurelien Roux and I am a Front-end developer from France.
-    I create sleek, user-centered digital experiences on the web.
-  </p>
-  <p>
-    This portfolio is organized into four spaces: Office, Gym, Interests, and Projects.
-    You can navigate between rooms using the arrow keys.
-    On mobile, every blue dialog box is a clickable button.
-  </p>
-  <p>
-    Interaction points are marked with a downward-moving arrow. When you reach one, press the <strong>SPACE</strong> key or click the bottom-right button to activate it.
-    If a dialog offers choices (indicated by a pointing hand), use the <strong>UP</strong> and <strong>DOWN</strong> arrows to navigate, and press <strong>ENTER</strong> to select.
-    To close a dialog, press or tap <strong>ESC</strong>.
-  </p>
-  <p>
-    To view my CV directly, press <strong>O</strong> or click the button in the top-left corner.
-    For help, press <strong>H</strong> or click the top-right button.
-  </p>
-  <p>
-    Thank you for visiting, I hope you enjoy the experience!
-  </p>
+    <p>
+      Welcome. My name is Aurelien Roux and I am a Front-end developer.
+    </p>
+    <p>
+      You can move around with ARROWS from the Office to the Gym, Interests or Projects room.
+      On mobile, click on blue buttons.
+    </p>
+    <p>
+      Interaction points <img src="../images/down-arrow.png" /> can be opened with SPACE key.
+      To close a dialog, press ESC.
+    </p>
+    <p>
+      If a dialog has choices <img src="../images/select-hand.png" />,
+      use UP and DOWN arrows to select and ENTER to confirm.
+    </p>
+    <p>
+      Press O to see my CV or tap top-left. For help, press H.
+    </p>
+    <p>
+      Thank you for visiting, I hope you enjoy it !
+    </p>
   `,
 });
 
