@@ -2,11 +2,11 @@ import { collisions } from "../data/collision.js";
 import { Boundary } from "./classes.js";
 import { startingOffset } from "./sprites.js";
 
-const tiledCollisionSymbol = 14429;
-const tiledMapWidth = 64;
+const tiledCollisionSymbol = 14429; // Tiled map collision code
+const tiledMapWidth = 64; // Tiled map width in square
 
 export const tileSizeInPixel = 48; // map is exported on x3 ratio (16px * 3)
-export const collisionMargin = 5;
+export const collisionMargin = 5; // safe space to avoid overlapping collisions
 export const collisionsMap = [];
 export const boundaries = [];
 

@@ -31,6 +31,7 @@ const movables = [
  * Main animation loop
  */
 async function main() {
+  // NOTE: elements order indicates z-index on canvas
   backgroundSprite.draw();
   dialogs.forEach((dialog) => dialog.draw());
   playerSprite.draw();
